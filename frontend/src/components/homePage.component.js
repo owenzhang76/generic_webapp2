@@ -5,7 +5,7 @@ import registerForm from "/registerForm.component";
 
 export default class homePage extends Component {
     constructor(props) {
-
+        super(props);
     };
     
     render() {
