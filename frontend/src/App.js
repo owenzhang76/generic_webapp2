@@ -2,7 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import registerForm from "./components/registerForm.component";
+import RegisterForm from "./components/RegisterForm.component";
+import HomePage from "./components/HomePage.component";
 
 export default class App extends React.Component{
   constructor(props) {
@@ -14,7 +15,7 @@ export default class App extends React.Component{
     return (
       <div>
         <Router>
-          <Route path="/" exact component={registerForm}></Route>
+          <Route path="/" exact component={HomePage}></Route>
         </Router>
       </div>
     );

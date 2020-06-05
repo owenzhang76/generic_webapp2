@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import registerForm from "/registerForm.component";
+import RegisterForm from "./RegisterForm.component";
 
-export default class homePage extends Component {
+export default class HomePage extends Component {
     constructor(props) {
         super(props);
     };
@@ -12,7 +12,7 @@ export default class homePage extends Component {
         return (
             <div>
                 <h1>Welcome to the homePage of Caralyst WebApp</h1>
-                <registerForm />
+                <RegisterForm />
             </div>
         );
     }

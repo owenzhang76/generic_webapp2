@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-export default class registerForm extends Component {
+export default class RegisterForm extends Component {
     constructor(props) {
         super(props);
 
