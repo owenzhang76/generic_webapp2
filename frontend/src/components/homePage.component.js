@@ -10,8 +10,8 @@ export default class HomePage extends Component {
     
     render() {
         return (
-            <div>
-                <h1>Welcome to the homePage of Caralyst WebApp</h1>
+            <div class="homepage-main-container">
+                <div class="entice-message">Begin a new chapter in Healthcare.</div>
                 <RegisterForm />
             </div>
         );

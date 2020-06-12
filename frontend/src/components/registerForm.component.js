@@ -77,24 +77,29 @@ export default class RegisterForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit}> 
-                <h1>Please Register</h1>
-                <label>Username:</label>
-                <input id="username-submit" type="text" value={this.state.username} onChange={this.onChangeUsername} />
-                <br />
-                <label>Password:</label>
-                <input id="password-submit" type="text" value={this.state.password} onChange={this.onChangePassword} />
-                <br />
-                <label>Email:</label>
-                <input id="email-submit" type="text" value={this.state.email} onChange={this.onChangeEmail} />
-                <br />
-                <label>Firstname:</label>
-                <input id="firstname-submit" type="text" value={this.state.firstname} onChange={this.onChangeFirstname} />
-                <br />
-                <label>Lastname:</label>
-                <input id="lastname-submit" type="text" value={this.state.lastname} onChange={this.onChangeLastname} />
-                <br />
-                <input id="login-submit" type="submit" />
+            <form class="register-form" onSubmit={this.onSubmit}> 
+                <div class="form-names-container">
+                    <div class="form-div long-input">
+                        <label>First:</label>
+                        <input id="firstname-submit" type="text" value={this.state.firstname} onChange={this.onChangeFirstname} />
+                    </div>
+                    <div class="form-div long-input">
+                        <label>Last:</label>
+                        <input id="lastname-submit" type="text" value={this.state.lastname} onChange={this.onChangeLastname} />
+                    </div>
+                </div>
+                <div class="form-div">
+                        <label>Username:</label>
+                        <input id="username-submit" type="text" value={this.state.username} onChange={this.onChangeUsername} />
+                </div>
+                <div class="form-div">
+                        <label>Email:</label>
+                        <input id="email-submit" type="text" value={this.state.email} onChange={this.onChangeEmail} />
+                </div>
+                <div class="form-div">
+                    <label>Password:</label>
+                    <input id="password-submit" type="text" value={this.state.password} onChange={this.onChangePassword} />
+                </div>
             </form>
         );
     }

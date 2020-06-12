@@ -1,8 +1,8 @@
+/********* Main Document ***********/
 body {
+  background-color: #343233 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/********* HomePage Component ***********/
+.homepage-main-container {
+  color: #efdab9 !important;
+  font-weight: 300 !important;
+}
+
+.entice-message {
+  font-size: 2.3em;
+  letter-spacing: 0.05em;
+  font-weight: 200;
+}
+
+/********* RegisterForm Component ***********/
+.form-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-names-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input {
+  color: white;
+  border-radius: 10px;
+  font-size: 25px !important;
+  font-weight: 500;
+  background-color: #ffd152;
+  border:1px solid #ffd152;
+  height: 38px;
+}
+
+input:focus {
+  outline: none;
+  background-color: #ffd152;
+  border: 1.5px solid white;
+}
+
+input:hover {
+  outline: none;
+  background-color: #efdab9;
+  border: 1.5px solid white;
+}
+
+.long-input {
+  width: 47%;
+}
+
+.register-form {
+  /* border: 1px solid #efdab9; */
+  display: flex;
+  flex-grow: 4;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 23%;
+}
+
