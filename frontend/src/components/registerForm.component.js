@@ -77,7 +77,7 @@ export default class RegisterForm extends Component {
 
     render() {
         return (
-            <form class="register-form animate__animated animate__fadeInUp animate__delay-2s" onSubmit={this.onSubmit}> 
+            <form class="register-form animate__animated animate__fadeInUp animate__delay-3s" onSubmit={this.onSubmit}> 
                 <div class="form-names-container">
                     <div class="form-div long-input">
                         <label>First:</label>
@@ -99,6 +99,9 @@ export default class RegisterForm extends Component {
                 <div class="form-div">
                     <label>Password:</label>
                     <input id="password-submit" type="text" value={this.state.password} onChange={this.onChangePassword} />
+                </div>
+                <div class="form-div-button">
+                    <button class="register-button" href="#">Register</button>
                 </div>
             </form>
         );
