@@ -15,6 +15,10 @@ export default class HomePage extends Component {
         return (
             <div class="homepage-main-container">
                 <Navbar />
+                <div id="lineOne" class="line animate__animated animate__fadeInLeft"></div>
+                <div id="lineTwo" class="line animate__animated animate__fadeInLeft"></div>
+                <div id="lineThree" class="line animate__animated animate__fadeInRight"></div>
+                <div id="lineFour" class="line animate__animated animate__fadeInRight"></div>
                 <div class="homepage-body-container">
                     <div class="register-main-container">
                         {/* <img id="graphicTwo" class="animate__animated animate__fadeIn animate__delay-3s" src={graphicTwo}></img> */}
@@ -29,7 +33,7 @@ export default class HomePage extends Component {
                         <div class="animate__animated animate__fadeInUp animate__delay-1s description-text-container ">
                             <div class="bigger-text-container">
                                 <p>Hippity Hoppitus Latino Choppitus.</p>
-                                <p>Marco wer sind wermacht. Genau.</p>
+                                <p>Wir sollten alle den dunklen Lord anbeten.</p>
                             </div>
                             <p class="smaller-paragraph">Haben Sie eine lange Tag gemacht? Diese Solution ist die perfekt fit fur Sie. Fierst, wie haben Faktorie in China, Japan, und the united Staaten vom Amerika. Danach, eine Millione Customer wollen unsere Platform.</p>
                             <p class="smaller-paragraph">Haben Sie eine lange Tag gemacht? Diese Solution ist die perfekt fit fur Sie. Fierst, wie haben Faktorie in China, Japan, und the united Staaten vom Amerika. Danach, eine Millione Customer wollen unsere Platform.</p>

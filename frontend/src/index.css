@@ -17,6 +17,16 @@ code {
   margin-bottom: 40px;
 }
 
+.circle {
+  background: #efdab9;
+  border-radius: 50%;
+  height: 10px;
+  left: 100px;
+  top: 150px;
+  position: absolute;
+  width: 10px;
+}
+
 .description-main-container {
   /* border: 1px solid white; */
   display: flex;
@@ -65,6 +75,46 @@ code {
   flex-direction: column;
   color: #efdab9 !important;
   font-weight: 300 !important;
+}
+
+#lineOne {
+  background: #659cc8;
+  height: 12px;
+  border-radius: 3px;
+  left: 80px;
+  top: 530px;
+  position: absolute;
+  width: 380px;
+}
+
+#lineTwo {
+  background: #78af9f;
+  height: 12px;
+  border-radius: 3px;
+  left: 170px;
+  top: 580px;
+  position: absolute;
+  width: 380px;
+}
+
+#lineThree {
+  background: #d36e2d;
+  height: 12px;
+  border-radius: 3px;
+  left: 80px;
+  top: 1230px;
+  position: absolute;
+  width: 380px;
+}
+
+#lineFour {
+  background: #c13f21;
+  height: 12px;
+  border-radius: 3px;
+  left: 170px;
+  top: 1280px;
+  position: absolute;
+  width: 380px;
 }
 
 p {
