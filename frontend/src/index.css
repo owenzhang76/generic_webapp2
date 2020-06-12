@@ -13,15 +13,48 @@ code {
 }
 
 /********* HomePage Component ***********/
+.entice-message {
+  font-size: 2.3em;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  margin-bottom: 30px;
+}
+
 .homepage-main-container {
   color: #efdab9 !important;
   font-weight: 300 !important;
 }
 
-.entice-message {
-  font-size: 2.3em;
-  letter-spacing: 0.05em;
-  font-weight: 200;
+.register-main-container {
+  padding-top: 500px;
+  padding-left: 250px;
+}
+
+/********* Navbar Component ***/
+.navbar-logo {
+  font-size: 2.0em;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
+.navbar-main-container {
+  /* background-color: #c13f21; */
+  background-color: #d36e2d;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 45px;
+  width: 100%;
+}
+
+.navbar-options-container {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.0em;
+  font-weight: 400;
+  justify-content: space-between;
+  width: 7%;
 }
 
 /********* RegisterForm Component ***********/
@@ -64,7 +97,6 @@ input:hover {
 }
 
 .register-form {
-  /* border: 1px solid #efdab9; */
   display: flex;
   flex-grow: 4;
   flex-direction: column;
