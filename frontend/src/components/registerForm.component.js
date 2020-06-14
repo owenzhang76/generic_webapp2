@@ -20,6 +20,7 @@ export default class RegisterForm extends Component {
             firstname: '',
             lastname: '',
         }
+        console.log(this.props.data)
     };
 
     componentDidMount() {
@@ -57,22 +58,15 @@ export default class RegisterForm extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const user = {
+        const registerInfo = {
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
             firstname: this.state.firstname,
             lastname: this.state.lastname
         }
-        console.log(user);
-        this.props.history.push('/login');
-        this.setState({
-            username: "",
-            password: "",
-            email: "",
-            firstname: "",
-            lastname: ""
-        })
+        console.log(registerInfo);
+        this.props.data(registerInfo);
     }
 
     render() {

@@ -9,8 +9,25 @@ import graphicTwo from "../graphic_2.png"
 export default class HomePage extends Component {
     constructor(props) {
         super(props);
+        this.passData = this.passData.bind(this);
+        this.setState({
+            username: "",
+            firstname: "",
+            lastname: "",
+            email: "",
+          });
     };
     
+    passData(registerInfo) {
+        console.log("passData ran");
+        this.setState({
+          username: registerInfo.username,
+          firstname: registerInfo.firstname,
+          lastname: registerInfo.lastname,
+          email: registerInfo.email,
+        });
+    }
+
     render() {
         return (
             <div class="homepage-main-container">
@@ -23,7 +40,7 @@ export default class HomePage extends Component {
                         </div>
                         <div class="register-form-container">
                             <div class="entice-message animate__animated animate__fadeInDown">Begin a new chapter in Lorem Ipsum.</div>
-                            <RegisterForm />
+                            <RegisterForm data={this.passData}/>
                         </div>
                         <div class="lower-lines-container animate__animated animate__fadeInRight animate__delay-3s">
                             <div id="lineThree" class="line"></div>
