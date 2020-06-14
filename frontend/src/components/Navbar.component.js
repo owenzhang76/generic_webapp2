@@ -10,7 +10,9 @@ export default class HomePage extends Component {
     render() {
         return (
            <div class="navbar-main-container">
-               <div class="navbar-logo">Ipsum Corporation</div>
+               <div class="navbar-logo-container">
+                    <div class="navbar-logo">Ipsum Corporation</div>
+               </div>
                <div class="navbar-options-container">
                    <div>Login</div>
                    <div>Support</div>
