@@ -39,9 +39,8 @@ export default class App extends React.Component{
     return (
       <div>
         <Router>
-          <Route path="/" render={props => (<HomePage {...props} passRegisterInfo={this.passRegisterInfo}/>)}></Route>
-          {/* <Route path="/onboard" exact component={OnboardPage}></Route> */}
-          <Route path="/onboard" render={props => (<OnboardPage {...props} registerFormInfo={registerFormInfo}/>)}></Route>
+          <Route exact path='/onboard' render={props => (<OnboardPage {...props} registerFormInfo={registerFormInfo}/>)}></Route>
+          <Route exact path='/' render={props => (<HomePage {...props} passRegisterInfo={this.passRegisterInfo}/>)}></Route>
         </Router>
       </div>
     );

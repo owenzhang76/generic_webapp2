@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import axios from 'axios';
 import RegisterForm from "./RegisterForm.component";
 import Navbar from "./Navbar.component";
-import graphicOne from "../graphic_1.png"
 import graphicTwo from "../graphic_2.png"
 
 export default class HomePage extends Component {
@@ -17,7 +14,7 @@ export default class HomePage extends Component {
             email: "",
           });
     };
-    
+
     passRegisterInfo(registerInfo) {
         console.log("passData ran");
         this.setState({
@@ -27,10 +24,8 @@ export default class HomePage extends Component {
           email: registerInfo.email,
         }, () => {
             console.log(this.state);
-            // this.props.history.push('/onboard');
-            // return;
+            this.props.history.push('/onboard');
         })
-        this.props.history.push('/onboard');
     }
 
     render() {
@@ -54,7 +49,7 @@ export default class HomePage extends Component {
                     </div>
                     <div class="description-main-container">
                         <div class="image-container">
-                        <img id="graphicTwo" class="animate__animated animate__fadeIn animate__delay-2s" src={graphicTwo}></img>
+                            <img id="graphicTwo" class="animate__animated animate__fadeIn animate__delay-2s" src={graphicTwo}></img>
                         </div>
                         <div class="description-text">
                             <div class="animate__animated animate__fadeInUp animate__delay-1s description-text-container ">
