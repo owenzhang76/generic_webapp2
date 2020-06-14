@@ -40,6 +40,7 @@ export default class App extends React.Component{
       <div>
         <Router>
           <Route path="/" render={props => (<HomePage {...props} passRegisterInfo={this.passRegisterInfo}/>)}></Route>
+          {/* <Route path="/onboard" exact component={OnboardPage}></Route> */}
           <Route path="/onboard" render={props => (<OnboardPage {...props} registerFormInfo={registerFormInfo}/>)}></Route>
         </Router>
       </div>

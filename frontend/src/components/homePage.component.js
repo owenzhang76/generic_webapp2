@@ -9,7 +9,7 @@ import graphicTwo from "../graphic_2.png"
 export default class HomePage extends Component {
     constructor(props) {
         super(props);
-        this.passData = this.passData.bind(this);
+        this.passRegisterInfo = this.passRegisterInfo.bind(this);
         this.setState({
             username: "",
             firstname: "",
@@ -18,14 +18,19 @@ export default class HomePage extends Component {
           });
     };
     
-    passData(registerInfo) {
+    passRegisterInfo(registerInfo) {
         console.log("passData ran");
         this.setState({
           username: registerInfo.username,
           firstname: registerInfo.firstname,
           lastname: registerInfo.lastname,
           email: registerInfo.email,
-        });
+        }, () => {
+            console.log(this.state);
+            // this.props.history.push('/onboard');
+            // return;
+        })
+        this.props.history.push('/onboard');
     }
 
     render() {
@@ -40,7 +45,7 @@ export default class HomePage extends Component {
                         </div>
                         <div class="register-form-container">
                             <div class="entice-message animate__animated animate__fadeInDown">Begin a new chapter in Lorem Ipsum.</div>
-                            <RegisterForm data={this.passData}/>
+                            <RegisterForm passRegisterInfo={this.passRegisterInfo}/>
                         </div>
                         <div class="lower-lines-container animate__animated animate__fadeInRight animate__delay-3s">
                             <div id="lineThree" class="line"></div>

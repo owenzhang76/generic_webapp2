@@ -20,7 +20,6 @@ export default class RegisterForm extends Component {
             firstname: '',
             lastname: '',
         }
-        console.log(this.props.data)
     };
 
     componentDidMount() {
@@ -66,7 +65,7 @@ export default class RegisterForm extends Component {
             lastname: this.state.lastname
         }
         console.log(registerInfo);
-        this.props.data(registerInfo);
+        this.props.passRegisterInfo(registerInfo);
     }
 
     render() {
