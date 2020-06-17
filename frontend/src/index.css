@@ -106,9 +106,6 @@ code {
   height: 12px;
   margin-bottom: 25px;
   margin-left: 15px;
-  /* left: 80px;
-  top: 530px;
-  position: absolute; */
   width: 380px;
 }
 
@@ -117,9 +114,6 @@ code {
   height: 12px;
   border-radius: 3px;
   margin-left: 70px;
-  /* left: 170px;
-  top: 580px;
-  position: absolute; */
   width: 380px;
 }
 
@@ -129,9 +123,6 @@ code {
   height: 12px;
   margin-bottom: 25px;
   margin-left: 15px;
-  /* left: 170px;
-  top: 1280px;
-  position: absolute; */
   width: 380px;
 }
 
@@ -140,9 +131,6 @@ code {
   border-radius: 3px;
   height: 12px;
   margin-left: 70px;
-  /* left: 80px;
-  top: 1230px;
-  position: absolute; */
   width: 380px;
 }
 
@@ -166,7 +154,6 @@ p {
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
-  /* margin-top: 160px; */
   margin-bottom: 20px;
   margin-left: 20px;
   width: 100%;
@@ -244,7 +231,6 @@ p {
 }
 
 /********* RegisterForm Component ***********/
-
 .form-div {
   display: flex;
   flex-direction: column;
@@ -328,3 +314,27 @@ input:hover {
   width: 70%;
 }
 
+/********* Onboard Component ***********/
+.onboard-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #efdab9 !important;
+  font-weight: 300 !important;
+}
+
+.quiz-container {
+  border: 1px solid white;
+  display: flex;
+  flex-grow: 4;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quiz-message-big {
+  font-size: 1.8em;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  margin-bottom: 30px;
+  margin-left: 40px;
+}

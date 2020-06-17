@@ -23,8 +23,12 @@ export default class HomePage extends Component {
           lastname: registerInfo.lastname,
           email: registerInfo.email,
         }, () => {
-            console.log(this.state);
-            this.props.history.push('/onboard');
+            console.log(this);
+            this.props.passRegisterInfoToMain(registerInfo);
+            setTimeout(() => {     
+                this.props.history.push('/onboard');
+            }, 500);
+
         })
     }
 

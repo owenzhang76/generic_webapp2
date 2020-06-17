@@ -8,7 +8,7 @@ import OnboardPage from "./components/Onboard.component";
 export default class App extends React.Component{
   constructor(props) {
     super(props);
-    this.passRegisterInfo = this.passRegisterInfo.bind(this);
+    this.passRegisterInfoToMain = this.passRegisterInfoToMain.bind(this);
     this.state = {
       username: '',
       firstname: '',
@@ -17,13 +17,15 @@ export default class App extends React.Component{
     };
   }
 
-  passRegisterInfo(registerInfo) {
-    console.log("passRegisterInfo ran");
+  passRegisterInfoToMain(registerInfo) {
+    console.log("passRegisterInfoToMain ran");
     this.setState({
       username: registerInfo.username,
       firstname: registerInfo.firstname,
       lastname: registerInfo.lastname,
       email: registerInfo.email,
+    }, () => {
+      console.log(this.state);
     });
   }
 
@@ -36,11 +38,13 @@ export default class App extends React.Component{
       email: this.state.email,
     }
     
+    console.log(registerFormInfo);
+    
     return (
       <div>
         <Router>
+          <Route exact path='/' render={props => (<HomePage {...props} passRegisterInfoToMain={this.passRegisterInfoToMain}/>)}></Route>
           <Route exact path='/onboard' render={props => (<OnboardPage {...props} registerFormInfo={registerFormInfo}/>)}></Route>
-          <Route exact path='/' render={props => (<HomePage {...props} passRegisterInfo={this.passRegisterInfo}/>)}></Route>
         </Router>
       </div>
     );
