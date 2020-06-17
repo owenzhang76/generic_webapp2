@@ -14,14 +14,11 @@ export default class OnboardPage extends Component {
         this.onChangeLastname = this.onChangeLastname.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        console.log(this.props);
-
         this.state = {
             username: '',
             firstname: '',
             lastname: '',
             email: '',
-            password: '',
         }
     };
     componentDidMount() {
@@ -32,7 +29,7 @@ export default class OnboardPage extends Component {
             firstname: this.props.registerFormInfo.firstname,
             lastname: this.props.registerFormInfo.lastname,
         }, () => {
-            console.log(this.state);
+            
         })
     }
 
@@ -80,11 +77,35 @@ export default class OnboardPage extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div class="onboard-main-container"> 
-                <div class="quiz-message-big">Hello there, {this.state.firstname}</div>
-                <form class="quiz-container animate__animated animate__fadeInUp" onSubmit={this.onSubmit}> 
+                <div class="quiz-messages-container">
+                    <div class="quiz-message-big animate__animated animate__fadeInUp animate__delay-1s">Hello there, {this.state.firstname}</div>
+                    <div class="quiz-message-big animate__animated animate__fadeInUp animate__delay-2s">Please pick any identities that resonate with you.</div>
+                </div>
+                <div class="identities-container animate__animated animate__fadeInUp animate__delay-3s">
+                    <div class="column">
+                        <button id="c1">White</button>
+                        <button id="c2">Destiny 2</button>
+                    </div>
+                    <div class="column"></div>
+                    <div class="column">
+                        <button id="c3">duck</button>
+                    </div>
+                    <div class="column">
+                        <button id="c4">sleepy</button>
+                        <button id="c5">terminator</button>
+                    </div>
+                    <div class="column">
+                        <button id="c6">douche</button>
+                    </div>
+                    <div class="column"></div>
+                    <div class="column">
+                        <button id="c7">cheese fondue</button>
+                        <button id="c8">depressed</button>
+                    </div>
+                </div>
+                {/* <form class="quiz-container animate__animated animate__fadeInUp animate__delay-3s" onSubmit={this.onSubmit}> 
                     <div class="form-names-container">
                         <div class="form-div long-input">
                             <label>First:</label>
@@ -95,7 +116,7 @@ export default class OnboardPage extends Component {
                             <input id="lastname-submit" type="text" value={this.state.lastname} onChange={this.onChangeLastname} />
                         </div>
                     </div>
-                </form>
+                </form> */}
             </div>
         );
     }

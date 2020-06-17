@@ -315,26 +315,109 @@ input:hover {
 }
 
 /********* Onboard Component ***********/
+button {
+  background-color: #2a2f32;
+  border: none;
+  border-radius: 10px;
+  color: #efdab9;
+  font-size: 20px !important;
+  font-weight: 200 !important;
+  height: 35px;
+  margin-top: 25px;
+  width: 140px;
+}
+
+button:focus {
+  background-color: #ffd152;
+  border-radius: 12px;
+  box-shadow: none;
+  color: #2a2f32;
+  outline: none !important;
+}
+
+.column {
+  display: grid;
+  /* border: 1px solid white; */
+  height: 100px;
+  width: 100%;
+}
+
+#c1 {
+  /* border: 1px solid white; */
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+#c2 {
+  /* border: 1px solid white; */
+  margin-left: 1100px;
+  margin-top: -10px;
+}
+
+#c3 {
+  /* border: 1px solid white; */
+  margin-left: 300px;
+  margin-top: 10px;
+}
+
+#c4 {
+  /* border: 1px solid white; */
+  margin-left: 600px;
+  margin-top: 20px;
+}
+
+#c5 {
+  /* border: 1px solid white; */
+  margin-left: 80px;
+  margin-top: -30px;
+}
+
+#c6 {
+  /* border: 1px solid white; */
+  margin-left: 1000px;
+  margin-top: 5px;
+}
+
+#c7 {
+  /* border: 1px solid white; */
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+#c8 {
+  /* border: 1px solid white; */
+  margin-left: 900px;
+  margin-top: -10px;
+}
+ 
 .onboard-main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   color: #efdab9 !important;
   font-weight: 300 !important;
 }
 
-.quiz-container {
-  border: 1px solid white;
+.identities-container {
+  border: 1px solid #efdab9;
   display: flex;
-  flex-grow: 4;
   flex-direction: column;
-  justify-content: center;
+  width: 100%;
 }
 
 .quiz-message-big {
-  font-size: 1.8em;
+  font-size: 2.0em;
   font-weight: 200;
-  letter-spacing: 0.05em;
-  margin-bottom: 30px;
-  margin-left: 40px;
+  letter-spacing: 0.06em;
+  margin-top: 20px;
+}
+
+.quiz-messages-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
