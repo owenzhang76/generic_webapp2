@@ -1,1 +1,1 @@
-# caraylst_webapp_2
+# generic webapp
