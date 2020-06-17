@@ -17,16 +17,16 @@ export default class App extends React.Component{
     };
   }
 
-  passRegisterInfoToMain(registerInfo) {
+  async passRegisterInfoToMain(registerInfo) {
     console.log("passRegisterInfoToMain ran");
-    this.setState({
-      username: registerInfo.username,
-      firstname: registerInfo.firstname,
-      lastname: registerInfo.lastname,
-      email: registerInfo.email,
-    }, () => {
-      console.log(this.state);
-    });
+    return new Promise((resolve) => {
+      this.setState({
+        username: registerInfo.username,
+        firstname: registerInfo.firstname,
+        lastname: registerInfo.lastname,
+        email: registerInfo.email,
+      }, resolve);
+    })
   }
 
   render() {

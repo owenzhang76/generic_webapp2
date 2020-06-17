@@ -7,6 +7,7 @@ export default class HomePage extends Component {
     constructor(props) {
         super(props);
         this.passRegisterInfo = this.passRegisterInfo.bind(this);
+        this.doSomething = this.doSomething.bind(this);
         this.setState({
             username: "",
             firstname: "",
@@ -24,13 +25,14 @@ export default class HomePage extends Component {
           email: registerInfo.email,
         }, () => {
             console.log(this);
-            this.props.passRegisterInfoToMain(registerInfo);
-            setTimeout(() => {     
-                this.props.history.push('/onboard');
-            }, 500);
-
+            this.doSomething(registerInfo);
         })
     }
+
+    async doSomething(registerInfo) {
+        await this.props.passRegisterInfoToMain(registerInfo);
+        this.props.history.push('/onboard');
+    };
 
     render() {
         return (
