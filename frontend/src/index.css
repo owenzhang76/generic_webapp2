@@ -310,29 +310,18 @@ input:hover {
   flex-grow: 4;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   width: 70%;
 }
 
 /********* Onboard Component ***********/
-button {
-  background-color: #2a2f32;
-  border: none;
-  border-radius: 10px;
-  color: #efdab9;
-  font-size: 20px !important;
-  font-weight: 200 !important;
-  height: 35px;
-  margin-top: 25px;
-  width: 140px;
+button:focus {
+  outline: none !important;
 }
 
-button:focus {
-  background-color: #ffd152;
-  border-radius: 12px;
-  box-shadow: none;
-  color: #2a2f32;
-  outline: none !important;
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .column {
@@ -389,14 +378,47 @@ button:focus {
   margin-left: 900px;
   margin-top: -10px;
 }
- 
-.onboard-main-container {
+
+.identity-submit-button {
+  background-color: #ffd152;
+  border-radius: 9px;
+  border: none;
+  color: #2a2f32;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: #efdab9 !important;
-  font-weight: 300 !important;
+  justify-content: center;
+  outline: none !important;
+  font-size: 20px !important;
+  font-weight: 200 !important;
+  height: 35px;
+  margin-top: 25px;
+  width: 140px;
+}
+
+.identity-button {
+  background-color: #2a2f32;
+  border: none;
+  border-radius: 12px;
+  color: #efdab9;
+  font-size: 20px !important;
+  font-weight: 200 !important;
+  height: 35px;
+  margin-top: 25px;
+  width: 140px;
+}
+
+.identity-button-focus {
+  background-color: #ffd152;
+  border-radius: 12px;
+  border: none;
+  color: #2a2f32;
+  outline: none !important;
+  font-size: 20px !important;
+  font-weight: 200 !important;
+  height: 35px;
+  margin-top: 25px;
+  width: 140px;
 }
 
 .identities-container {
@@ -405,6 +427,15 @@ button:focus {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.onboard-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #efdab9 !important;
+  font-weight: 300 !important;
 }
 
 .quiz-message-big {
@@ -421,4 +452,10 @@ button:focus {
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+.section-1 {
+  display: flex;
+  flex-direction: column;
+  width: 99%;
 }
