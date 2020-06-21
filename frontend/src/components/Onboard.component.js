@@ -57,14 +57,12 @@ export default class OnboardPage extends Component {
 
     toggleHighlight(event) {
         if (document.getElementById("identity-submit-button") == null) {
-            console.log("inside if");
             let submitButton = document.createElement("button");
             submitButton.id = "identity-submit-button";
             submitButton.classList.add("identity-submit-button");
             submitButton.textContent = "Next";
             submitButton.addEventListener("click", this.handleSubmit);
             document.getElementById("button-container").appendChild(submitButton);
-            
         }
         if (event.target.classList.contains("identity-button")) {
             event.target.classList.remove("identity-button");
@@ -91,7 +89,6 @@ export default class OnboardPage extends Component {
                 document.getElementById("section-2").style.display="block";
             });
         })
-       
     }
 
     onChangeUsername(e) {
@@ -210,7 +207,6 @@ export default class OnboardPage extends Component {
                         </div>
                     </div>
                 </div>
-                
             </div>
         );
     }

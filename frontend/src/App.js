@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import HomePage from "./components/HomePage.component";
+import LandingPage from "./components/LandingPage.component";
 import OnboardPage from "./components/Onboard.component";
 
 export default class App extends React.Component{
@@ -30,7 +30,6 @@ export default class App extends React.Component{
   }
 
   render() {
-
     let registerFormInfo = {
       username: this.state.username,
       firstname: this.state.firstname,
@@ -43,7 +42,7 @@ export default class App extends React.Component{
     return (
       <div>
         <Router>
-          <Route exact path='/' render={props => (<HomePage {...props} passRegisterInfoToMain={this.passRegisterInfoToMain}/>)}></Route>
+          <Route exact path='/' render={props => (<LandingPage {...props} passRegisterInfoToMain={this.passRegisterInfoToMain}/>)}></Route>
           <Route exact path='/onboard' render={props => (<OnboardPage {...props} registerFormInfo={registerFormInfo}/>)}></Route>
         </Router>
       </div>
