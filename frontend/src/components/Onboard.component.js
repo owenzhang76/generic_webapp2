@@ -33,7 +33,18 @@ export default class OnboardPage extends Component {
             lastname: this.props.registerFormInfo.lastname,
         }, () => {
             document.getElementById("section-2").style.display="none";
+        });
+       let divs = document.getElementsByClassName("scenario-choice-container");
+       for (let i = 0; i < divs.length; i++) {
+           divs[i].addEventListener("click", function() {
+               divs[i].classList.add("animate__animated");
+               divs[i].classList.add("animate__flash");
+           });
+           divs[i].addEventListener("animationend", () => {
+            divs[i].classList.remove("animate__animated");
+            divs[i].classList.remove("animate__flash");
         })
+       }
     }
 
     toggleHighlight(event) {
@@ -105,17 +116,12 @@ export default class OnboardPage extends Component {
         })
     };
 
-    // onSubmit(e) {
-    //     e.preventDefault();
-    //     const registerInfo = {
-    //         username: this.state.username,
-    //         password: this.state.password,
-    //         email: this.state.email,
-    //         firstname: this.state.firstname,
-    //         lastname: this.state.lastname
-    //     }
-    //     console.log(registerInfo);
-    //     this.props.passRegisterInfo(registerInfo);
+    // flash(e) {
+    //     let div = e.target;
+    //     div.addEventListener("animationend", () => {
+    //         div.classList.remove("animate__animated");
+    //         div.classList.remove("animate__flash");
+    //     })
     // }
 
     render() {

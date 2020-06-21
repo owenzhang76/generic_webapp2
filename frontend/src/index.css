@@ -479,6 +479,18 @@ button:focus {
   width: 49%;
 }
 
+.scenario-choice-container:hover {
+  border-color: #ffd152;
+  background-color: #efdab9;
+  color: black;
+}
+
+.scenario-choice-container:hover .scenario-key{
+  background-color: #ffd152;
+  color: black;
+  border-color: black;
+}
+
 .scenario-choices {
   /* border: 1px solid white; */
   display: flex;
@@ -498,11 +510,6 @@ button:focus {
   margin-right: 5px;
   width: 30px;
   height: 30px;
-}
-
-.scenario-title {
-  /* display: flex; */
-  /* flex-direction: row; */
 }
 
 .scenario-row {
