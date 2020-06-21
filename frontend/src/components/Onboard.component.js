@@ -21,6 +21,7 @@ export default class OnboardPage extends Component {
             lastname: '',
             email: '',
             identitiesList: [],
+            answerTwo: '',
         }
     };
 
@@ -33,18 +34,25 @@ export default class OnboardPage extends Component {
             lastname: this.props.registerFormInfo.lastname,
         }, () => {
             document.getElementById("section-2").style.display="none";
-        });
-       let divs = document.getElementsByClassName("scenario-choice-container");
-       for (let i = 0; i < divs.length; i++) {
-           divs[i].addEventListener("click", function() {
-               divs[i].classList.add("animate__animated");
-               divs[i].classList.add("animate__flash");
-           });
-           divs[i].addEventListener("animationend", () => {
-            divs[i].classList.remove("animate__animated");
-            divs[i].classList.remove("animate__flash");
-        })
-       }
+            document.getElementById("scenario-2").style.display="none";
+            let divs = document.getElementsByClassName("scenario-choice-container");
+            for (let i = 0; i < divs.length; i++) {
+                divs[i].addEventListener("click", () => {
+                    this.setState({
+                        answerTwo: divs[i].lastElementChild.innerHTML,
+                    }, () => {
+                        divs[i].classList.add("animate__animated");
+                        divs[i].classList.add("animate__flash");
+                    });
+                });
+                divs[i].addEventListener("animationend", () => {
+                    divs[i].classList.remove("animate__animated");
+                    divs[i].classList.remove("animate__flash");
+                    document.getElementById("scenario-1").style.display="none";
+                    document.getElementById("scenario-2").style.display="flex";
+                });
+            };
+        });  
     }
 
     toggleHighlight(event) {
@@ -116,14 +124,6 @@ export default class OnboardPage extends Component {
         })
     };
 
-    // flash(e) {
-    //     let div = e.target;
-    //     div.addEventListener("animationend", () => {
-    //         div.classList.remove("animate__animated");
-    //         div.classList.remove("animate__flash");
-    //     })
-    // }
-
     render() {
         return (
             <div class="onboard-main-container"> 
@@ -156,7 +156,7 @@ export default class OnboardPage extends Component {
                     </div>
                     <div id="button-container" class="button-container"></div>      
                 </div>
-                <div id="section-2" class="sectio animate__animated animate__fadeInUp">
+                <div id="section-2" class="animate__animated animate__fadeInUp">
                     <div class="scenarios-container">
                         <div id="scenario-1" class="scenario">
                             <div class="scenario-title"><small>2 →</small> Die Washington University ist eine großartige Schule und Stanford ist scheiße. Würden Sie sich also für unser Produkt entscheiden oder nicht?</div>
@@ -179,6 +179,31 @@ export default class OnboardPage extends Component {
                                     <div class="scenario-choice-container">
                                         <div class="scenario-key">D</div>
                                         <div class="scenario-choice">Krankenhaus</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="scenario-2" class="scenario animate__animated animate__fadeInUp">
+                            <div class="scenario-title"><small>3 →</small> Es gibt 20.000 Satelliten am Himmel, von denen jeder hell gegen das Auge blitzt. Wird es jemals eine Chance geben, dass einer von ihnen fremd ist?</div>
+                            <div class="scenario-choices">
+                                <div class="scenario-row">
+                                    <div class="scenario-choice-container">
+                                        <div class="scenario-key">A</div>
+                                        <div class="scenario-choice">Ya Kla</div>
+                                    </div>
+                                    <div class="scenario-choice-container">
+                                        <div class="scenario-key">B</div>
+                                        <div class="scenario-choice">Absolut Nicht</div>
+                                    </div>
+                                </div>
+                                <div class="scenario-row">
+                                    <div class="scenario-choice-container">
+                                        <div class="scenario-key">C</div>
+                                        <div class="scenario-choice">Manchmal</div>
+                                    </div>
+                                    <div class="scenario-choice-container">
+                                        <div class="scenario-key">D</div>
+                                        <div class="scenario-choice">Kleine Anflieht</div>
                                     </div>
                                 </div>
                             </div>
