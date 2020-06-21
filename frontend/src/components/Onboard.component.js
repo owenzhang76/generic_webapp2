@@ -66,7 +66,6 @@ export default class OnboardPage extends Component {
             identitiesList: testList,
         }, () => {
             console.log(this.state);
-            // document.getElementById("section-1").style.display="none";
             document.getElementById("section-1").classList.add('animate__animated', 'animate__fadeOutUp');
             document.getElementById("section-1").addEventListener('animationend', () => {
                 document.getElementById("section-1").style.display="none";
@@ -152,7 +151,33 @@ export default class OnboardPage extends Component {
                     <div id="button-container" class="button-container"></div>      
                 </div>
                 <div id="section-2" class="sectio animate__animated animate__fadeInUp">
-                    <div>This is section 2 bitch</div>
+                    <div class="scenarios-container">
+                        <div id="scenario-1" class="scenario">
+                            <div class="scenario-title"><small>2 →</small> Die Washington University ist eine großartige Schule und Stanford ist scheiße. Würden Sie sich also für unser Produkt entscheiden oder nicht?</div>
+                            <div class="scenario-choices">
+                                <div class="scenario-row">
+                                    <div class="scenario-choice-container">
+                                        <div class="scenario-key">A</div>
+                                        <div class="scenario-choice">Volswagen</div>
+                                    </div>
+                                    <div class="scenario-choice-container">
+                                        <div class="scenario-key">B</div>
+                                        <div class="scenario-choice">Gesundheit</div>
+                                    </div>
+                                </div>
+                                <div class="scenario-row">
+                                    <div class="scenario-choice-container">
+                                        <div class="scenario-key">C</div>
+                                        <div class="scenario-choice">Praktikum</div>
+                                    </div>
+                                    <div class="scenario-choice-container">
+                                        <div class="scenario-key">D</div>
+                                        <div class="scenario-choice">Krankenhaus</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
             </div>
