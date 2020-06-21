@@ -130,7 +130,7 @@ export default class OnboardPage extends Component {
                 <div id="section-1" class="section">
                     <div class="quiz-messages-container">
                         <div class="quiz-message-big animate__animated animate__fadeInUp animate__delay-1s">Hello there, {this.state.firstname}</div>
-                        <div class="quiz-message-big animate__animated animate__fadeInUp animate__delay-2s">Please pick any identities that resonate with you.</div>
+                        <div class="quiz-message-big animate__animated animate__fadeInUp animate__delay-2s"><small>1 →</small> Please pick any identities that resonate with you.</div>
                     </div>
                     <div id="identities-container" class="identities-container animate__animated animate__fadeIn animate__delay-3s">
                         <div class="column animate__animated animate__fadeInUp animate__delay-4s">

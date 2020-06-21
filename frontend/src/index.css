@@ -439,9 +439,9 @@ button:focus {
 }
 
 .quiz-message-big {
-  font-size: 2.0em;
+  font-size: 1.6em;
   font-weight: 200;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   margin-top: 20px;
 }
 
