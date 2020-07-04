@@ -556,7 +556,7 @@ button:focus {
   font-size: 26px;
   font-weight: 400;
   margin-bottom: 7px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 
 .fa-check-circle {
@@ -632,7 +632,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   font-family: Galano Grotesque,Helvetica,sans-serif !important;
-  /* justify-content: center; */
+  justify-content: center;
   line-height: 1.5;
   width: 50%;
 }
