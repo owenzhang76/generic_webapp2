@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-/********* HomePage Component ***********/
+/********* LandingPage Component ***********/
 .bigger-text-container {
   margin-bottom: 50px;
 }
@@ -546,3 +546,115 @@ button:focus {
   flex-direction: column;
   width: 99%;
 }
+
+/********* HomePage Component ***/
+
+.center-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 7px;
+  margin-top: 100px;
+}
+
+.fa-check-circle {
+  color: lightgreen;
+}
+
+.home-main-container {
+  color: #efdab9 !important;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300 !important;
+  width: 100%;
+}
+
+.homepage-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+}
+
+.image-container {
+  /* background-color: green; */
+  margin: 0;
+  width: 50%;
+}
+
+.matching-container {
+  width: 80%;
+}
+
+.matching-main-container {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.match-reason-container {
+  align-items: center;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: row;  
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.match-reason-preview-container {
+  /* border: 1px solid gray; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 50px;
+  height: 60px;
+}
+
+.person-container {
+  /* border: 1px solid salmon; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+
+.person-description {
+  align-items: center;
+  background-color: #ffedb4;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #454650;
+  display: flex;
+  flex-direction: column;
+  font-family: Galano Grotesque,Helvetica,sans-serif !important;
+  /* justify-content: center; */
+  line-height: 1.5;
+  width: 50%;
+}
+
+.profile-image {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.sidebar {
+  width: 25%;
+  border: 1px solid grey;
+  height: 100%;
+}
+
+.text-big {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: 400;
+}
+
