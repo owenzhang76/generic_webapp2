@@ -22,22 +22,45 @@ export default class HomePage extends Component {
                                    <div class="image-container">
                                        <img class="profile-image" src={PersonOne}></img>
                                    </div>
-                                   <div class="person-description">
-                                       <div class="text-container-main">
+                                   <div id="description-one" class="person-description">
+                                       {/* <div id="page-one" class="text-container-main">
                                             <div class="center-header">Avery García</div>
                                             <div class="text-big">2 Hacker Way Center, Menhigh Park</div>
                                             <div class="match-reason-preview-container">
                                                 <div class="match-reason-container">
-                                                    <i class="far fa-check-circle"></i>
+                                                    <i class="far fa-check-circle fa-lg"></i>
                                                     <div class="match-reason">&nbsp; Avery knows how to play the piano</div>
                                                 </div>
                                                 <div class="match-reason-container">
-                                                    <i class="far fa-check-circle"></i>
+                                                    <i class="far fa-check-circle fa-lg"></i>
                                                     <div class="match-reason">&nbsp; You both are passionate about poverty</div>
+                                                </div>
+                                            </div>
+                                       </div> */}
+                                       <div id="page-two" class="text-container-main">
+                                            <div class="center-header">Avery García</div>
+                                            <div class="text-big">2 Hacker Way Center, Menhigh Park</div>
+                                            <div class="match-reason-preview-container">
+                                                <div class="match-reason-container">
+                                                    <i class="far fa-check-circle fa-lg"></i>
+                                                    <div class="match-reason">Avery knows how to play the piano</div>
+                                                </div>
+                                                <div class="match-reason-container">
+                                                    <i class="far fa-check-circle fa-lg"></i>
+                                                    <div class="match-reason">You both are passionate about poverty</div>
+                                                </div>
+                                                <div class="match-reason-container">
+                                                    <i class="fas fa-fan"></i>
+                                                    <div class="match-reason">Avery supports the BLM Movement</div>
+                                                </div>
+                                                <div class="match-reason-container">
+                                                    <i class="far fa-check-circle fa-lg"></i>
+                                                    <div class="match-reason">You both graduated from the University of Phoenix</div>
                                                 </div>
                                             </div>
                                        </div>
                                    </div>
+                                   
                                {/* </div> */}
                            </div>
                        </div>

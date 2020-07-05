@@ -559,8 +559,18 @@ button:focus {
   /* margin-top: 100px; */
 }
 
+.fa {
+  padding: 100px !important;
+}
+
 .fa-check-circle {
   color: lightgreen;
+  padding: 7px ;
+}
+
+.fa-fan {
+  color: orange;
+  padding: 10px ;
 }
 
 .home-main-container {
@@ -597,6 +607,13 @@ button:focus {
   width: 75%;
 }
 
+.match-reason {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: row;  
+  justify-content: flex-start;
+
+}
 .match-reason-container {
   align-items: center;
   /* border: 1px solid black; */
@@ -611,8 +628,8 @@ button:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* margin-left: 15px; */
   margin-top: 50px;
-  height: 60px;
 }
 
 .person-container {
@@ -656,5 +673,6 @@ button:focus {
   flex-direction: row;
   font-size: 20px;
   font-weight: 400;
+  justify-content: center;
 }
 
