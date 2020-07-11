@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import LandingPage from "./components/LandingPage.component";
-import OnboardPage from "./components/Onboard.component";
-import HomePage from './components/HomePage.component';
+import LandingPage from "./components/LandingPage";
+import OnboardPage from "./components/OnboardPage";
+import HomePage from './components/HomePage';
 
 export default class App extends Component{
   constructor(props) {

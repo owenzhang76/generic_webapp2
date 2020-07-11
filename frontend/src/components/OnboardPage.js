@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import Navbar from "./Navbar.component";
+// import Navbar from "./Navbar";
 
 export default class OnboardPage extends Component {
     constructor(props) {

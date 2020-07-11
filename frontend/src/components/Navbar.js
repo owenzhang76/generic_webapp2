@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-export default class Navbar extends Component {
-    constructor(props) {
-        super(props);
-    };
-    
-    render() {
+const Navbar = () => {
         return (
            <div class="navbar-main-container">
                <div class="navbar-logo-container">
@@ -20,5 +15,5 @@ export default class Navbar extends Component {
                </div>
            </div>
         );
-    }
 }
+export default Navbar;

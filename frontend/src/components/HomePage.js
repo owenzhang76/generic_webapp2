@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar.component';
+import Navbar from './Navbar';
 import PersonOne from "../stock_person_1.jpg";
 import PersonTwo from "../stock_person_2.jpg";
 
-export default class HomePage extends Component {
-    constructor(props) {
-        super(props);
-    };
-    
-    render() {
-        return (
+const HomePage  = () => (
            <div class="home-main-container">
                {/* <Navbar /> */}
                <div class="homepage-container">
@@ -68,5 +62,4 @@ export default class HomePage extends Component {
                </div>
            </div>
         );
-    }
-}
+export default HomePage;
