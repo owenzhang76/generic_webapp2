@@ -7,7 +7,7 @@ const OnboardPage = ({ history }) => {
 
     const identityList = useSelector(state => state.identityList); // action.newList
 
-    const [count, setCount] = useState(0);
+    const [onQuestionsYet, setOnQuestionsYet] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -22,12 +22,12 @@ const OnboardPage = ({ history }) => {
 
 
     const question1 = {
-        question: "Die Washington University ist eine großartige Schule und Stanford ist scheiße. Würden Sie sich also für unser Produkt entscheiden oder nicht?",
+        question: "¿Die Stanford University ist eine großartige Schule und UC Berkeley ist scheiße. Würden Sie sich also für unser Produkt entscheiden oder nicht?",
         answers: [{ key: "A", choice: "Volswagen" }, { key: "B", choice: "Gesundheit" }, { key: "C", choice: "Praktikum" }, { key: "D", choice: "Bier" }],
     }
 
     const question2 = {
-        question: "Es gibt 20.000 Satelliten am Himmel, von denen jeder hell gegen das Auge blitzt. Wird es jemals eine Chance geben, dass einer von ihnen fremd ist?",
+        question: "¿Es gibt 20.000 Satelliten am Himmel, von denen jeder hell gegen das Auge blitzt. Wird es jemals eine Chance geben, dass einer von ihnen fremd ist?",
         answers: [{ key: "A", choice: "Ya Kla" }, { key: "B", choice: "Absolut Nicht" }, { key: "C", choice: "Nach Mal" }, { key: "D", choice: "Kleine Anflieht" }],
     }
 
@@ -57,8 +57,8 @@ const OnboardPage = ({ history }) => {
         document.getElementById("identities-section").classList.add('animate__animated', 'animate__fadeOutUp');
         document.getElementById("identities-section").addEventListener('animationend', () => {
             document.getElementById("identities-section").style.display = "none";
-            document.getElementById("questions-section").style.display = "block";
         });
+        setOnQuestionsYet(true);
     };
 
 
@@ -79,24 +79,24 @@ const OnboardPage = ({ history }) => {
                 </div>
                 <div id="identities-container" className="identities-container animate__animated animate__fadeIn animate__delay-100ms">
                     <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
-                        {identityButton("White",0)}
-                        {identityButton("Destiny 2",1)}
+                        {identityButton("Identity: White",0)}
+                        {identityButton("Identity: Destiny 2",1)}
                     </div>
                     <div className="column "></div>
                     <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
-                        {identityButton("duck",2)}
+                        {identityButton("Identity: duck",2)}
                     </div>
                     <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
-                        {identityButton("sleepy",3)}
-                        {identityButton("terminator",4)}
+                        {identityButton("Identity: sleepy",3)}
+                        {identityButton("Identity: terminator",4)}
                     </div>
                     <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
-                        {identityButton("douche",5)}
+                        {identityButton("Identity: douche",5)}
                     </div>
                     <div className="column"></div>
                     <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
-                        {identityButton("cheese fondue",6)}
-                        {identityButton("depressed",7)}
+                        {identityButton("Identity: cheese fondue",6)}
+                        {identityButton("Identity: depressed",7)}
                     </div>
                 </div>
                 <div id="button-container" className="button-container">
@@ -136,7 +136,11 @@ const OnboardPage = ({ history }) => {
     return (
         <div className="onboard-main-container">
             {identitiesSection()}
-            <div id="questions-section" className="animate__animated animate__fadeInUp">
+            <div 
+            id="questions-section" 
+            className="animate__animated animate__fadeInUp"
+            style={{display: onQuestionsYet ? "block" : "none"}}
+            >
                 <div className="questions-container">
                     {makeQuestion(questions[questionIndex])}
                 </div>

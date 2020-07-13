@@ -35,7 +35,7 @@ const HomePage  = () => (
                                             <div className="match-reason-preview-container">
                                                 <div className="match-reason-container">
                                                     <i className="far fa-check-circle fa-lg"></i>
-                                                    <div className="match-reason">Avery knows how to play the piano</div>
+                                                    <div className="match-reason">You both Avery knows how to play the piano</div>
                                                 </div>
                                                 <div className="match-reason-container">
                                                     <i className="far fa-check-circle fa-lg"></i>
@@ -43,7 +43,7 @@ const HomePage  = () => (
                                                 </div>
                                                 <div className="match-reason-container">
                                                     <i className="fas fa-fan"></i>
-                                                    <div className="match-reason">Avery supports the BLM Movement</div>
+                                                    <div className="match-reason">You both Avery supports the BLM Movement</div>
                                                 </div>
                                                 <div className="match-reason-container">
                                                     <i className="far fa-check-circle fa-lg"></i>
