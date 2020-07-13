@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import Navbar from './Navbar';
+import React from 'react';
 import PersonOne from "../stock_person_1.jpg";
-import PersonTwo from "../stock_person_2.jpg";
 
 const HomePage  = () => (
            <div class="home-main-container">
@@ -14,7 +12,7 @@ const HomePage  = () => (
                            <div class="person-container">
                                {/* <div id="info-slide-one"> */}
                                    <div class="image-container">
-                                       <img class="profile-image" src={PersonOne}></img>
+                                       <img alt="person one" class="profile-image" src={PersonOne}></img>
                                    </div>
                                    <div id="description-one" class="person-description">
                                        {/* <div id="page-one" class="text-container-main">

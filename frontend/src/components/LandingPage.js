@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React from 'react';
 import RegisterForm from "./RegisterForm.component";
 import Navbar from "./Navbar";
 import graphicTwo from "../graphic_2.png";
@@ -39,7 +39,7 @@ const LandingPage = ({ history, passRegisterInfoToMain }) => {
         </div>
         <div class="description-main-container">
           <div class="image-container">
-            <img id="graphicTwo" class="animate__animated animate__fadeIn animate__delay-2s" src={graphicTwo}></img>
+            <img alt="macy the builder" id="graphicTwo" class="animate__animated animate__fadeIn animate__delay-2s" src={graphicTwo}></img>
           </div>
           <div class="description-text">
             <div class="animate__animated animate__fadeInUp animate__delay-1s description-text-container ">

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import axios from 'axios';
 // import Navbar from "./Navbar";
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -36,16 +34,10 @@ const OnboardPage = () => {
     const scenarios = [scenario1, scenario2];
 
 
-    const moveToNextQuestion = (e) => {
-        const questionDiv = e.target;
-        setAnswerTwo(questionDiv);
-        questionDiv.classList.add("animate__animated");
-        questionDiv.classList.add("animate__flash");
-
+    const moveToNextQuestion = () => {
         setQuestionIndex(questionIndex + 1)
     };
 
-    const [answerTwo, setAnswerTwo] = useState('');
     useEffect(() => {
         document.getElementById("questions-section").style.display = "none";
     });
@@ -87,37 +79,37 @@ const OnboardPage = () => {
             </button>
         );
         return (
-            <div id="identities-section" class="section">
-                <div class="quiz-messages-container">
-                    <div class="quiz-message-big animate__animated animate__fadeInUp animate__delay-300ms">Hello there, {firstname}</div>
-                    <div class="quiz-message-big animate__animated animate__fadeInUp animate__delay-400ms"><small>1 →</small> Please pick any identities that resonate with you.</div>
+            <div id="identities-section" className="section">
+                <div className="quiz-messages-container">
+                    <div className="quiz-message-big animate__animated animate__fadeInUp animate__delay-300ms">Hello there, {firstname}</div>
+                    <div className="quiz-message-big animate__animated animate__fadeInUp animate__delay-400ms"><small>1 →</small> Please pick any identities that resonate with you.</div>
                 </div>
-                <div id="identities-container" class="identities-container animate__animated animate__fadeIn animate__delay-100ms">
-                    <div class="column animate__animated animate__fadeInUp animate__delay-500ms">
+                <div id="identities-container" className="identities-container animate__animated animate__fadeIn animate__delay-100ms">
+                    <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
                         {identityButton("White",0)}
                         {identityButton("Destiny 2",1)}
                     </div>
-                    <div class="column "></div>
-                    <div class="column animate__animated animate__fadeInUp animate__delay-500ms">
+                    <div className="column "></div>
+                    <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
                         {identityButton("duck",2)}
                     </div>
-                    <div class="column animate__animated animate__fadeInUp animate__delay-500ms">
+                    <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
                         {identityButton("sleepy",3)}
                         {identityButton("terminator",4)}
                     </div>
-                    <div class="column animate__animated animate__fadeInUp animate__delay-500ms">
+                    <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
                         {identityButton("douche",5)}
                     </div>
-                    <div class="column"></div>
-                    <div class="column animate__animated animate__fadeInUp animate__delay-500ms">
+                    <div className="column"></div>
+                    <div className="column animate__animated animate__fadeInUp animate__delay-500ms">
                         {identityButton("cheese fondue",6)}
                         {identityButton("depressed",7)}
                     </div>
                 </div>
-                <div id="button-container" class="button-container">
+                <div id="button-container" className="button-container">
                     <button
                         id="identity-submit-button"
-                        class="identity-submit-button"
+                        className="identity-submit-button"
                         onClick={moveToQuestions}
                         disabled={identityList.length < 1}>
                         Next
@@ -129,18 +121,18 @@ const OnboardPage = () => {
 
     const makeQuestion = (scenario, questionNumber) => {
         return (
-            <div class="scenario">
-                <div class="scenario-title">
+            <div className="scenario">
+                <div className="scenario-title">
                     Question Index!{questionIndex}
                     <small>2 →</small>
                     {scenario.question}
                 </div>
-                <div class="scenario-choices">
+                <div className="scenario-choices">
                     {scenario.answers.map((answer, index) => (
-                        <div class="scenario-row" key={index}>
-                            <div class="scenario-choice-container" onClick={() => moveToNextQuestion}>
-                                <div class="scenario-key">{answer.key}</div>
-                                <div class="scenario-choice">{answer.choice}</div>
+                        <div className="scenario-row" key={index}>
+                            <div className="scenario-choice-container" onClick={moveToNextQuestion}>
+                                <div className="scenario-key">{answer.key}</div>
+                                <div className="scenario-choice">{answer.choice}</div>
                             </div>
                         </div>
                     ))}
@@ -151,9 +143,9 @@ const OnboardPage = () => {
 
 
     return (
-        <div class="onboard-main-container">
+        <div className="onboard-main-container">
             {identitiesSection()}
-            <div id="questions-section" class="animate__animated animate__fadeInUp">
+            <div id="questions-section" className="animate__animated animate__fadeInUp">
                 Question Index!{questionIndex}
                 <div>WHAT IS HAPPNIENG
                 <p>You clicked {count} times</p>
@@ -161,7 +153,7 @@ const OnboardPage = () => {
                         Click me
       </button>
                 </div>
-                <div class="scenarios-container">
+                <div className="scenarios-container">
                     {makeQuestion(scenarios[questionIndex])}
                 </div>
             </div>
