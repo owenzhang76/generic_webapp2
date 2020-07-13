@@ -8,7 +8,6 @@ import LandingPage from "./components/LandingPage";
 import OnboardPage from "./components/OnboardPage";
 import HomePage from './components/HomePage';
 
-// export default class
 const App = () => {
   const defaultState = {
     username: "",

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import Navbar from "./Navbar";
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -138,7 +138,6 @@ const OnboardPage = ({ history }) => {
             {identitiesSection()}
             <div 
             id="questions-section" 
-            className="animate__animated animate__fadeInUp"
             style={{display: onQuestionsYet ? "block" : "none"}}
             >
                 <div className="questions-container">

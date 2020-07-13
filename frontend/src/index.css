@@ -194,13 +194,13 @@ p {
 .navbar-logo-container {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .navbar-logo {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: baseline;
   font-size: 1.7em;
   font-weight: 300;
