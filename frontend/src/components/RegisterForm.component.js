@@ -1,93 +1,93 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import i18n from 'i18next';import k from "./../i18n/keys";import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const RegisterForm = (props) => {
+const RegisterForm = props => {
 
-    const username = useSelector(state => state.username);
-    const firstname = useSelector(state => state.firstname);
-    const lastname = useSelector(state => state.lastname);
-    const email = useSelector(state => state.email);
+  const username = useSelector(state => state.username);
+  const firstname = useSelector(state => state.firstname);
+  const lastname = useSelector(state => state.lastname);
+  const email = useSelector(state => state.email);
 
-    // password is not shared outside of this form.
-    const [password, setPassword] = useState('');
+  // password is not shared outside of this form.
+  const [password, setPassword] = useState('');
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const onChangeUsername = (e) => {
-        dispatch({
-            type: "SET_USERNAME",
-            text: e.target.value,
-        })
-    };
+  const onChangeUsername = e => {
+    dispatch({
+      type: "SET_USERNAME",
+      text: e.target.value });
 
-    const onChangePassword = (e) => {
-        setPassword(e.target.value)
-    };
+  };
 
-    const onChangeEmail = (e) => {
-        dispatch({
-            type:"SET_EMAIL",
-            text: e.target.value,
-        })
-    };
+  const onChangePassword = e => {
+    setPassword(e.target.value);
+  };
 
-    const onChangeFirstname = (e) => {
-        dispatch({
-            type:"SET_FIRSTNAME",
-            text: e.target.value,
-        })
-    };
+  const onChangeEmail = e => {
+    dispatch({
+      type: "SET_EMAIL",
+      text: e.target.value });
 
-    const onChangeLastname = (e) => {
-        dispatch({
-            type:"SET_LASTNAME",
-            text: e.target.value,
-        })
-    };
+  };
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const registerInfo = {
-            username,
-            firstname,
-            lastname,
-            email,
-            password,
-        }
-        console.log("registerInfo");
-        console.log(registerInfo);
-        props.registerUser(registerInfo);
-    }
+  const onChangeFirstname = e => {
+    dispatch({
+      type: "SET_FIRSTNAME",
+      text: e.target.value });
 
-    return (
-        <form className="register-form animate__animated animate__fadeInUp animate__delay-3s" onSubmit={onSubmit}>
+  };
+
+  const onChangeLastname = e => {
+    dispatch({
+      type: "SET_LASTNAME",
+      text: e.target.value });
+
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    const registerInfo = {
+      username,
+      firstname,
+      lastname,
+      email,
+      password };
+
+    console.log("registerInfo");
+    console.log(registerInfo);
+    props.registerUser(registerInfo);
+  };
+
+  return (
+    <form className="register-form animate__animated animate__fadeInUp animate__delay-3s" onSubmit={onSubmit}>
             <div className="form-names-container">
                 <div className="form-div long-input">
-                    <label>First:</label>
+                    <label>{i18n.t(k.FIRST)}</label>
                     <input id="firstname-submit" type="text" value={firstname} onChange={onChangeFirstname} />
                 </div>
                 <div className="form-div long-input">
-                    <label>Last:</label>
+                    <label>{i18n.t(k.LAST)}</label>
                     <input id="lastname-submit" type="text" value={lastname} onChange={onChangeLastname} />
                 </div>
             </div>
             <div className="form-div">
-                <label>Username:</label>
+                <label>{i18n.t(k.USERNAME)}</label>
                 <input id="username-submit" type="text" value={username} onChange={onChangeUsername} />
             </div>
             <div className="form-div">
-                <label>Email:</label>
+                <label>{i18n.t(k.EMAIL)}</label>
                 <input id="email-submit" type="text" value={email} onChange={onChangeEmail} />
             </div>
             <div className="form-div">
-                <label>Password:</label>
+                <label>{i18n.t(k.PASSWORD)}</label>
                 <input id="password-submit" type="text" value={password} onChange={onChangePassword} />
             </div>
             <div className="form-div-button">
-                <button className="register-button" href="#">Register</button>
+                <button className="register-button" href="#">{i18n.t(k.REGISTER)}</button>
             </div>
-        </form>
-    );
-}
+        </form>);
+
+};
 
 export default RegisterForm;
