@@ -16,7 +16,7 @@ const App = () => {
     email: "",
     firstname: "",
     lastname: "",
-    identitiesList: [],
+    identityList: [],
   };
   const userInfoReducer = (state = defaultState, action) => {
     switch(action.type) {
@@ -40,10 +40,10 @@ const App = () => {
           ...state,
           email: action.text,
         }
-      case "SET_IDENTITIES_LIST":
+      case "SET_IDENTITY_LIST":
         return {
           ...state,
-          identitiesList: action.newList,
+          identityList: action.newList,
         }
       default:
         return state
