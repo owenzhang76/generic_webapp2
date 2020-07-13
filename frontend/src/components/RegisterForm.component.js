@@ -1,100 +1,93 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 
-export default class RegisterForm extends Component {
-    constructor(props) {
-        super(props);
+const RegisterForm = (props) => {
 
-        this.onChangeUsername = this.onChangeUsername.bind(this);
-        this.onChangePassword = this.onChangePassword.bind(this);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
-        this.onChangeFirstname = this.onChangeFirstname.bind(this);
-        this.onChangeLastname = this.onChangeLastname.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+    const username = useSelector(state => state.username);
+    const firstname = useSelector(state => state.firstname);
+    const lastname = useSelector(state => state.lastname);
+    const email = useSelector(state => state.email);
 
-        this.state = {
-            username: '',
-            password: '',
-            email: '',
-            firstname: '',
-            lastname: '',
-        }
-    };
+    // password is not shared outside of this form.
+    const [password, setPassword] = useState('');
 
-    componentDidMount() {
-    }
+    const dispatch = useDispatch();
 
-    onChangeUsername(e) {
-        this.setState({
-            username: e.target.value
+    const onChangeUsername = (e) => {
+        dispatch({
+            type: "SET_USERNAME",
+            text: e.target.value,
         })
     };
 
-    onChangePassword(e) {
-        this.setState({
-            password: e.target.value
-        })
+    const onChangePassword = (e) => {
+        setPassword(e.target.value)
     };
-    
-    onChangeEmail(e) {
-        this.setState({
-            email: e.target.value
+
+    const onChangeEmail = (e) => {
+        dispatch({
+            type:"SET_EMAIL",
+            text: e.target.value,
         })
     };
 
-    onChangeFirstname(e) {
-        this.setState({
-            firstname: e.target.value
+    const onChangeFirstname = (e) => {
+        dispatch({
+            type:"SET_FIRSTNAME",
+            text: e.target.value,
         })
     };
 
-    onChangeLastname(e) {
-        this.setState({
-            lastname: e.target.value
+    const onChangeLastname = (e) => {
+        dispatch({
+            type:"SET_LASTNAME",
+            text: e.target.value,
         })
     };
 
-    onSubmit(e) {
+    const onSubmit = (e) => {
         e.preventDefault();
         const registerInfo = {
-            username: this.state.username,
-            password: this.state.password,
-            email: this.state.email,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname
+            username,
+            firstname,
+            lastname,
+            email,
+            password,
         }
+        console.log("registerInfo");
         console.log(registerInfo);
-        this.props.passRegisterInfo(registerInfo);
+        props.registerUser(registerInfo);
     }
 
-    render() {
-        return (
-            <form class="register-form animate__animated animate__fadeInUp animate__delay-3s" onSubmit={this.onSubmit}> 
-                <div class="form-names-container">
-                    <div class="form-div long-input">
-                        <label>First:</label>
-                        <input id="firstname-submit" type="text" value={this.state.firstname} onChange={this.onChangeFirstname} />
-                    </div>
-                    <div class="form-div long-input">
-                        <label>Last:</label>
-                        <input id="lastname-submit" type="text" value={this.state.lastname} onChange={this.onChangeLastname} />
-                    </div>
+    return (
+        <form class="register-form animate__animated animate__fadeInUp animate__delay-3s" onSubmit={onSubmit}>
+            <div class="form-names-container">
+                <div class="form-div long-input">
+                    <label>First:</label>
+                    <input id="firstname-submit" type="text" value={firstname} onChange={onChangeFirstname} />
                 </div>
-                <div class="form-div">
-                        <label>Username:</label>
-                        <input id="username-submit" type="text" value={this.state.username} onChange={this.onChangeUsername} />
+                <div class="form-div long-input">
+                    <label>Last:</label>
+                    <input id="lastname-submit" type="text" value={lastname} onChange={onChangeLastname} />
                 </div>
-                <div class="form-div">
-                        <label>Email:</label>
-                        <input id="email-submit" type="text" value={this.state.email} onChange={this.onChangeEmail} />
-                </div>
-                <div class="form-div">
-                    <label>Password:</label>
-                    <input id="password-submit" type="text" value={this.state.password} onChange={this.onChangePassword} />
-                </div>
-                <div class="form-div-button">
-                    <button class="register-button" href="#">Register</button>
-                </div>
-            </form>
-        );
-    }
+            </div>
+            <div class="form-div">
+                <label>Username:</label>
+                <input id="username-submit" type="text" value={username} onChange={onChangeUsername} />
+            </div>
+            <div class="form-div">
+                <label>Email:</label>
+                <input id="email-submit" type="text" value={email} onChange={onChangeEmail} />
+            </div>
+            <div class="form-div">
+                <label>Password:</label>
+                <input id="password-submit" type="text" value={password} onChange={onChangePassword} />
+            </div>
+            <div class="form-div-button">
+                <button class="register-button" href="#">Register</button>
+            </div>
+        </form>
+    );
 }
+
+export default RegisterForm;

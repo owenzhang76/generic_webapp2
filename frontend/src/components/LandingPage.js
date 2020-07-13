@@ -1,35 +1,24 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import RegisterForm from "./RegisterForm.component";
 import Navbar from "./Navbar";
 import graphicTwo from "../graphic_2.png";
 
-const LandingPage = ({ history }, passRegisterInfoToMain) => {
-  const [state, setState] = useState({
-    username: "",
-    firstname: "",
-    lastname: "",
-    email: ""
-  });
+const LandingPage = ({ history, passRegisterInfoToMain }) => {
 
-  const passRegisterInfo = (registerInfo) => {
-    console.log("passData ran");
-    setState({
-      username: registerInfo.username,
-      firstname: registerInfo.firstname,
-      lastname: registerInfo.lastname,
-      email: registerInfo.email
-    },
-      () => {
-        console.log(this);
-        doSomething(registerInfo);
-      });
+  const submitRegistration = async (registerInfo) => {
+    // axios promise blah
+    console.log('submitting data to axios')
+    console.log(registerInfo);
   }
 
-  const doSomething = async (registerInfo) => {
-    await passRegisterInfoToMain(registerInfo);
+  const registerUser = async (registerInfo) => {
+    await submitRegistration(registerInfo);
     history.push('/onboard');
   }
 
+
+  // sequence: Submit registration info. Await confirmation. Push to next page.
+  
   return (
     <div class="homepage-main-container">
       <Navbar />
@@ -41,7 +30,7 @@ const LandingPage = ({ history }, passRegisterInfoToMain) => {
           </div>
           <div class="register-form-container">
             <div class="entice-message animate__animated animate__fadeInDown">Begin a new chapter in Lorem Ipsum.</div>
-            <RegisterForm passRegisterInfo={passRegisterInfo} />
+            <RegisterForm registerUser={registerUser} />
           </div>
           <div class="lower-lines-container animate__animated animate__fadeInRight animate__delay-3s">
             <div id="lineThree" class="line"></div>
