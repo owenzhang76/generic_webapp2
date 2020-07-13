@@ -2,11 +2,11 @@ import React from 'react';
 
 const Navbar = () => {
         return (
-           <div class="navbar-main-container">
-               <div class="navbar-logo-container">
-                    <div class="navbar-logo">Ipsum Corporation</div>
+           <div className="navbar-main-container">
+               <div className="navbar-logo-container">
+                    <div className="navbar-logo">Ipsum Corporation</div>
                </div>
-               <div class="navbar-options-container">
+               <div className="navbar-options-container">
                    <div>Login</div>
                    <div>Support</div>
                    <div>About</div>

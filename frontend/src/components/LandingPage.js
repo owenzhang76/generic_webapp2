@@ -20,35 +20,35 @@ const LandingPage = ({ history, passRegisterInfoToMain }) => {
   // sequence: Submit registration info. Await confirmation. Push to next page.
   
   return (
-    <div class="homepage-main-container">
+    <div className="homepage-main-container">
       <Navbar />
-      <div class="homepage-body-container">
-        <div class="register-main-container">
-          <div class="upper-lines-container animate__animated animate__fadeInLeft animate__delay-3s">
-            <div id="lineOne" class="line"></div>
-            <div id="lineTwo" class="line"></div>
+      <div className="homepage-body-container">
+        <div className="register-main-container">
+          <div className="upper-lines-container animate__animated animate__fadeInLeft animate__delay-3s">
+            <div id="lineOne" className="line"></div>
+            <div id="lineTwo" className="line"></div>
           </div>
-          <div class="register-form-container">
-            <div class="entice-message animate__animated animate__fadeInDown">Begin a new chapter in Lorem Ipsum.</div>
+          <div className="register-form-container">
+            <div className="entice-message animate__animated animate__fadeInDown">Begin a new chapter in Lorem Ipsum.</div>
             <RegisterForm registerUser={registerUser} />
           </div>
-          <div class="lower-lines-container animate__animated animate__fadeInRight animate__delay-3s">
-            <div id="lineThree" class="line"></div>
-            <div id="lineFour" class="line"></div>
+          <div className="lower-lines-container animate__animated animate__fadeInRight animate__delay-3s">
+            <div id="lineThree" className="line"></div>
+            <div id="lineFour" className="line"></div>
           </div>
         </div>
-        <div class="description-main-container">
-          <div class="image-container">
-            <img alt="macy the builder" id="graphicTwo" class="animate__animated animate__fadeIn animate__delay-2s" src={graphicTwo}></img>
+        <div className="description-main-container">
+          <div className="image-container">
+            <img alt="macy the builder" id="graphicTwo" className="animate__animated animate__fadeIn animate__delay-2s" src={graphicTwo}></img>
           </div>
-          <div class="description-text">
-            <div class="animate__animated animate__fadeInUp animate__delay-1s description-text-container ">
-              <div class="bigger-text-container">
+          <div className="description-text">
+            <div className="animate__animated animate__fadeInUp animate__delay-1s description-text-container ">
+              <div className="bigger-text-container">
                 <p>HIPPITY_HOPPITUS_LATINO_CHOPPI</p>
                 <p>WIR_SOLLTEN_ALLE_DEN_DUNKLEN_L</p>
               </div>
-              <p class="smaller-paragraph">HABEN_SIE_EINE_LANGE_TAG_GEMAC</p>
-              <p class="smaller-paragraph">HABEN_SIE_EINE_LANGE_TAG_GEMAC</p>
+              <p className="smaller-paragraph">HABEN_SIE_EINE_LANGE_TAG_GEMAC</p>
+              <p className="smaller-paragraph">HABEN_SIE_EINE_LANGE_TAG_GEMAC</p>
             </div>
           </div>
         </div>

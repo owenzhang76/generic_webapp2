@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import Navbar from "./Navbar";
 import { useDispatch, useSelector } from 'react-redux'
 
-const OnboardPage = () => {
+const OnboardPage = ({ history }) => {
     const firstname = useSelector(state => state.firstname);
 
     const identityList = useSelector(state => state.identityList); // action.newList
@@ -21,46 +21,39 @@ const OnboardPage = () => {
     const [questionIndex, setQuestionIndex] = useState(0);
 
 
-    const scenario1 = {
+    const question1 = {
         question: "Die Washington University ist eine großartige Schule und Stanford ist scheiße. Würden Sie sich also für unser Produkt entscheiden oder nicht?",
         answers: [{ key: "A", choice: "Volswagen" }, { key: "B", choice: "Gesundheit" }, { key: "C", choice: "Praktikum" }, { key: "D", choice: "Bier" }],
     }
 
-    const scenario2 = {
+    const question2 = {
         question: "Es gibt 20.000 Satelliten am Himmel, von denen jeder hell gegen das Auge blitzt. Wird es jemals eine Chance geben, dass einer von ihnen fremd ist?",
         answers: [{ key: "A", choice: "Ya Kla" }, { key: "B", choice: "Absolut Nicht" }, { key: "C", choice: "Nach Mal" }, { key: "D", choice: "Kleine Anflieht" }],
     }
 
-    const scenarios = [scenario1, scenario2];
+    const questions = [question1, question2];
 
 
     const moveToNextQuestion = () => {
-        setQuestionIndex(questionIndex + 1)
+        if (questionIndex + 1 < questions.length) {
+            setQuestionIndex(questionIndex + 1)
+        } else {
+            history.push('/home');
+        }
     };
 
-    useEffect(() => {
-        document.getElementById("questions-section").style.display = "none";
-    });
-
     const toggleIdentity = (chosenIdentity) => {
+        let newList;
         if (identityList && identityList.includes(chosenIdentity))  {// remove existing identity from list
-            setIdentityList(
-                identityList.filter(identity => identity !== chosenIdentity)
-            )
+            newList = identityList.filter(identity => identity !== chosenIdentity);
         } else {
-            setIdentityList(
-                [...identityList, chosenIdentity]
-            )
+            newList = [...identityList, chosenIdentity]
         }
+        setIdentityList(newList);
+        console.log(newList)
     }
 
     const moveToQuestions = () => {
-        let chosenIdentities = document.getElementsByClassName("identity-button-focus");
-        let testList = [];
-        for (let i = 0; i < chosenIdentities.length; i++) {
-            testList.push(chosenIdentities[i].textContent);
-        };
-        setIdentityList(testList);
         document.getElementById("identities-section").classList.add('animate__animated', 'animate__fadeOutUp');
         document.getElementById("identities-section").addEventListener('animationend', () => {
             document.getElementById("identities-section").style.display = "none";
@@ -119,20 +112,19 @@ const OnboardPage = () => {
         );
     }
 
-    const makeQuestion = (scenario, questionNumber) => {
+    const makeQuestion = (question) => {
         return (
-            <div className="scenario">
-                <div className="scenario-title">
-                    Question Index!{questionIndex}
-                    <small>2 →</small>
-                    {scenario.question}
+            <div className="question">
+                <div className="question-title">
+                    <small>{questionIndex + 2} →</small>
+                    {question.question}
                 </div>
-                <div className="scenario-choices">
-                    {scenario.answers.map((answer, index) => (
-                        <div className="scenario-row" key={index}>
-                            <div className="scenario-choice-container" onClick={moveToNextQuestion}>
-                                <div className="scenario-key">{answer.key}</div>
-                                <div className="scenario-choice">{answer.choice}</div>
+                <div className="question-choices">
+                    {question.answers.map((answer, index) => (
+                        <div className="question-row" key={index}>
+                            <div className="question-choice-container" onClick={moveToNextQuestion}>
+                                <div className="question-key">{answer.key}</div>
+                                <div className="question-choice">{answer.choice}</div>
                             </div>
                         </div>
                     ))}
@@ -141,20 +133,12 @@ const OnboardPage = () => {
         )
     }
 
-
     return (
         <div className="onboard-main-container">
             {identitiesSection()}
             <div id="questions-section" className="animate__animated animate__fadeInUp">
-                Question Index!{questionIndex}
-                <div>WHAT IS HAPPNIENG
-                <p>You clicked {count} times</p>
-                    <button onClick={() => setCount(count + 1)}>
-                        Click me
-      </button>
-                </div>
-                <div className="scenarios-container">
-                    {makeQuestion(scenarios[questionIndex])}
+                <div className="questions-container">
+                    {makeQuestion(questions[questionIndex])}
                 </div>
             </div>
         </div>

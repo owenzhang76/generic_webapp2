@@ -60,31 +60,31 @@ const RegisterForm = (props) => {
     }
 
     return (
-        <form class="register-form animate__animated animate__fadeInUp animate__delay-3s" onSubmit={onSubmit}>
-            <div class="form-names-container">
-                <div class="form-div long-input">
+        <form className="register-form animate__animated animate__fadeInUp animate__delay-3s" onSubmit={onSubmit}>
+            <div className="form-names-container">
+                <div className="form-div long-input">
                     <label>First:</label>
                     <input id="firstname-submit" type="text" value={firstname} onChange={onChangeFirstname} />
                 </div>
-                <div class="form-div long-input">
+                <div className="form-div long-input">
                     <label>Last:</label>
                     <input id="lastname-submit" type="text" value={lastname} onChange={onChangeLastname} />
                 </div>
             </div>
-            <div class="form-div">
+            <div className="form-div">
                 <label>Username:</label>
                 <input id="username-submit" type="text" value={username} onChange={onChangeUsername} />
             </div>
-            <div class="form-div">
+            <div className="form-div">
                 <label>Email:</label>
                 <input id="email-submit" type="text" value={email} onChange={onChangeEmail} />
             </div>
-            <div class="form-div">
+            <div className="form-div">
                 <label>Password:</label>
                 <input id="password-submit" type="text" value={password} onChange={onChangePassword} />
             </div>
-            <div class="form-div-button">
-                <button class="register-button" href="#">Register</button>
+            <div className="form-div-button">
+                <button className="register-button" href="#">Register</button>
             </div>
         </form>
     );
