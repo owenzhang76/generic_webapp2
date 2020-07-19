@@ -1,54 +1,65 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import { createStore } from 'redux';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import LandingPage from "./components/LandingPage.component";
-import OnboardPage from "./components/Onboard.component";
-import HomePage from './components/HomePage.component';
+import LandingPage from "./components/LandingPage";
+import OnboardPage from "./components/OnboardPage";
+import HomePage from './components/HomePage';
 
-export default class App extends Component{
-  constructor(props) {
-    super(props);
-    this.passRegisterInfoToMain = this.passRegisterInfoToMain.bind(this);
-    this.state = {
-      username: '',
-      firstname: '',
-      lastname: '',
-      email: '',
-    };
-  }
+const App = () => {
+  const defaultState = {
+    username: "",
+    password: "",
+    email: "",
+    firstname: "",
+    lastname: "",
+    identityList: [] };
 
-  async passRegisterInfoToMain(registerInfo) {
-    console.log("passRegisterInfoToMain ran");
-    return new Promise((resolve) => {
-      this.setState({
-        username: registerInfo.username,
-        firstname: registerInfo.firstname,
-        lastname: registerInfo.lastname,
-        email: registerInfo.email,
-      }, resolve);
-    })
-  }
+  const userInfoReducer = (state = defaultState, action) => {
+    switch (action.type) {
+      case "SET_USERNAME":
+        return {
+          ...state,
+          username: action.text };
 
-  render() {
-    let registerFormInfo = {
-      username: this.state.username,
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      email: this.state.email,
-    }
-    
-    console.log(registerFormInfo);
-    
-    return (
+      case "SET_FIRSTNAME":
+        return {
+          ...state,
+          firstname: action.text };
+
+      case "SET_LASTNAME":
+        return {
+          ...state,
+          lastname: action.text };
+
+      case "SET_EMAIL":
+        return {
+          ...state,
+          email: action.text };
+
+      case "SET_IDENTITY_LIST":
+        return {
+          ...state,
+          identityList: action.newList };
+
+      default:
+        return state;}
+
+  };
+  let store = createStore(userInfoReducer);
+  return (
+    <Provider store={store}>
       <div>
         <Router>
-          <Route exact path='/' render={props => (<LandingPage {...props} passRegisterInfoToMain={this.passRegisterInfoToMain}/>)}></Route>
-          <Route exact path='/onboard' render={props => (<OnboardPage {...props} registerFormInfo={registerFormInfo}/>)}></Route>
-          <Route exact path='/home' render={props => (<HomePage {...props} registerFormInfo={registerFormInfo}/>)}></Route>
+          <Route exact path='/' render={props => <LandingPage {...props} />}></Route>
+          <Route exact path='/onboard' render={props => <OnboardPage {...props} />}></Route>
+          <Route exact path='/home' render={props => <HomePage {...props} />}></Route>
         </Router>
       </div>
-    );
-  }
+    </Provider>);
+
 };
+
+export default App;

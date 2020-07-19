@@ -194,13 +194,13 @@ p {
 .navbar-logo-container {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .navbar-logo {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: baseline;
   font-size: 1.7em;
   font-weight: 300;
@@ -454,7 +454,7 @@ button:focus {
   margin-bottom: 40px;
 }
 
-.scenario {
+.question {
   align-items: center !important;
   /* border: 1px solid #ffd152; */
   display: flex;
@@ -464,13 +464,13 @@ button:focus {
   width: 80%;
 }
 
-.scenario-choice {
+.question-choice {
   font-size: 1.3em;
   font-weight: 200;
   letter-spacing: 0.04em;
 }
 
-.scenario-choice-container {
+.question-choice-container {
   align-items: center;
   border: 1px solid #efdab9;
   border-radius: 4px;
@@ -480,19 +480,19 @@ button:focus {
   width: 49%;
 }
 
-.scenario-choice-container:hover {
+.question-choice-container:hover {
   border-color: #ffd152;
   background-color: #efdab9;
   color: black;
 }
 
-.scenario-choice-container:hover .scenario-key{
+.question-choice-container:hover .question-key{
   background-color: #ffd152;
   color: black;
   border-color: black;
 }
 
-.scenario-choices {
+.question-choices {
   /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
@@ -502,7 +502,7 @@ button:focus {
   width: 60%;
 }
 
-.scenario-key {
+.question-key {
   align-items: center;
   border: 1px solid #efdab9;
   border-radius: 6px;
@@ -515,7 +515,7 @@ button:focus {
   height: 30px;
 }
 
-.scenario-row {
+.question-row {
   /* border: 1px solid purple; */
   display: flex;
   flex-direction: row;
@@ -524,7 +524,7 @@ button:focus {
   margin-bottom: 10px;
 }
 
-.scenarios-container {
+.questions-container {
   /* border: 1px solid #ffd152; */
   align-items: center;
   display: flex;
@@ -534,7 +534,7 @@ button:focus {
   width: 100%;
 }
 
-.scenario-title {
+.question-title {
   font-size: 1.6em;
   font-weight: 200;
   letter-spacing: 0.04em;
