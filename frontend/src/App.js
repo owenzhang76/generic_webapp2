@@ -9,46 +9,55 @@ import OnboardPage from "./components/OnboardPage";
 import HomePage from './components/HomePage';
 
 const App = () => {
+
   const defaultState = {
     username: "",
     password: "",
     email: "",
     firstname: "",
     lastname: "",
-    identityList: [] };
+    identityList: [] 
+  };
 
   const userInfoReducer = (state = defaultState, action) => {
     switch (action.type) {
       case "SET_USERNAME":
         return {
           ...state,
-          username: action.text };
+          username: action.text 
+        };
 
       case "SET_FIRSTNAME":
         return {
           ...state,
-          firstname: action.text };
+          firstname: action.text 
+        };
 
       case "SET_LASTNAME":
         return {
           ...state,
-          lastname: action.text };
+          lastname: action.text 
+        };
 
       case "SET_EMAIL":
         return {
           ...state,
-          email: action.text };
+          email: action.text 
+        };
 
       case "SET_IDENTITY_LIST":
         return {
           ...state,
-          identityList: action.newList };
+          identityList: action.newList 
+        };
 
       default:
-        return state;}
-
+        return state;
+    }
   };
+
   let store = createStore(userInfoReducer);
+
   return (
     <Provider store={store}>
       <div>
@@ -58,8 +67,8 @@ const App = () => {
           <Route exact path='/home' render={props => <HomePage {...props} />}></Route>
         </Router>
       </div>
-    </Provider>);
-
+    </Provider>
+  );
 };
 
 export default App;

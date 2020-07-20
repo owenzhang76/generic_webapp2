@@ -1,4 +1,6 @@
-import i18n from 'i18next';import k from "./../i18n/keys";import React from 'react';
+import i18n from 'i18next';
+import k from "./../i18n/keys";
+import React from 'react';
 import RegisterForm from "./RegisterForm.component";
 import Navbar from "./Navbar";
 import graphicTwo from "../graphic_2.png";

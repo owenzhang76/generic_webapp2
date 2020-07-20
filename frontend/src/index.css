@@ -595,7 +595,14 @@ button:focus {
 }
 
 .matching-container {
-  width: 80%;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  overflow: scroll;
+  width: 90%;
+  justify-content: center;
+
 }
 
 .matching-main-container {
@@ -603,6 +610,7 @@ button:focus {
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* overflow: hidden; */
   justify-content: center;
   width: 75%;
 }
@@ -614,6 +622,7 @@ button:focus {
   justify-content: flex-start;
 
 }
+
 .match-reason-container {
   align-items: center;
   /* border: 1px solid black; */
@@ -637,7 +646,16 @@ button:focus {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 65%;
+  /* min-width: 50%; */
 
+}
+
+.a-box {
+  border: 1px solid blue;
+  width: 600px;
+  height: 600px;
+  min-width: 600px;
 }
 
 .person-description {

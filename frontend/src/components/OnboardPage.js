@@ -14,8 +14,8 @@ const OnboardPage = ({ history }) => {
   const setIdentityList = newList => {
     dispatch({
       type: "SET_IDENTITY_LIST",
-      newList });
-
+      newList 
+    });
   };
 
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -23,12 +23,14 @@ const OnboardPage = ({ history }) => {
 
   const question1 = {
     question: i18n.t(k.DIE_STANFORD_UNIVERSITY_IST_E),
-    answers: [{ key: i18n.t(k.A), choice: i18n.t(k.VOLSWAGEN) }, { key: i18n.t(k.B), choice: i18n.t(k.GESUNDHEIT) }, { key: i18n.t(k.C1), choice: i18n.t(k.PRAKTIKUM) }, { key: i18n.t(k.D), choice: i18n.t(k.BIER) }] };
+    answers: [{ key: i18n.t(k.A), choice: i18n.t(k.VOLSWAGEN) }, { key: i18n.t(k.B), choice: i18n.t(k.GESUNDHEIT) }, { key: i18n.t(k.C1), choice: i18n.t(k.PRAKTIKUM) }, { key: i18n.t(k.D), choice: i18n.t(k.BIER) }] 
+  };
 
 
   const question2 = {
     question: i18n.t(k.ES_GIBT_SATELLITEN_AM),
-    answers: [{ key: i18n.t(k.A), choice: i18n.t(k.YA_KLA) }, { key: i18n.t(k.B), choice: i18n.t(k.ABSOLUT_NICHT) }, { key: i18n.t(k.C1), choice: i18n.t(k.NACH_MAL) }, { key: i18n.t(k.D), choice: i18n.t(k.KLEINE_ANFLIEHT) }] };
+    answers: [{ key: i18n.t(k.A), choice: i18n.t(k.YA_KLA) }, { key: i18n.t(k.B), choice: i18n.t(k.ABSOLUT_NICHT) }, { key: i18n.t(k.C1), choice: i18n.t(k.NACH_MAL) }, { key: i18n.t(k.D), choice: i18n.t(k.KLEINE_ANFLIEHT) }] 
+  };
 
 
   const questions = [question1, question2];
@@ -64,12 +66,9 @@ const OnboardPage = ({ history }) => {
 
   const identitiesSection = () => {
     const identityButton = (text, index) =>
-    <button
-    id={`${i18n.t(k.C)}${index}`}
-    className={identityList && identityList.includes(text) ? "identity-button-focus" : "identity-button"}
-    onClick={() => toggleIdentity(text)}>
-                {text}
-            </button>;
+    <button id={`${i18n.t(k.C)}${index}`} className={identityList && identityList.includes(text) ? "identity-button-focus" : "identity-button"} onClick={() => toggleIdentity(text)}>
+      {text}
+    </button>;
 
     return (
       <div id="identities-section" className="section">
@@ -101,50 +100,51 @@ const OnboardPage = ({ history }) => {
                 </div>
                 <div id="button-container" className="button-container">
                     <button
-          id="identity-submit-button"
-          className="identity-submit-button"
-          onClick={moveToQuestions}
-          disabled={identityList.length < 1}>
+                      id="identity-submit-button"
+                      className="identity-submit-button"
+                      onClick={moveToQuestions}
+                      disabled={identityList.length < 1}>
                         {i18n.t(k.NEXT)}
-                </button>
+                    </button>
                 </div>
-            </div>);
+        </div>);
 
   };
+
+
+
 
   const makeQuestion = question => {
     return (
       <div className="question">
-                <div className="question-title">
-                    <small>{questionIndex + 2} {i18n.t(k._1)}</small>
-                    {question.question}
-                </div>
-                <div className="question-choices">
-                    {question.answers.map((answer, index) =>
-          <div className="question-row" key={index}>
-                            <div className="question-choice-container" onClick={moveToNextQuestion}>
-                                <div className="question-key">{answer.key}</div>
-                                <div className="question-choice">{answer.choice}</div>
-                            </div>
-                        </div>)}
-
-                </div>
-            </div>);
-
+        <div className="question-title">
+            <small>{questionIndex + 2} {i18n.t(k._1)}</small>
+            {question.question}
+        </div>
+        <div className="question-choices">
+            {question.answers.map((answer, index) =>
+              <div className="question-row" key={index}>
+                  <div className="question-choice-container" onClick={moveToNextQuestion}>
+                      <div className="question-key">{answer.key}</div>
+                      <div className="question-choice">{answer.choice}</div>
+                  </div>
+              </div>)
+            }
+        </div>
+      </div>);
   };
+
+
 
   return (
     <div className="onboard-main-container">
-            {identitiesSection()}
-            <div
-      id="questions-section"
-      style={{ display: onQuestionsYet ? "block" : "none" }}>
-
-                <div className="questions-container">
-                    {makeQuestion(questions[questionIndex])}
-                </div>
-            </div>
-        </div>);
+      {identitiesSection()}
+      <div id="questions-section" style={{ display: onQuestionsYet ? "block" : "none" }}>
+          <div className="questions-container">
+              {makeQuestion(questions[questionIndex])}
+          </div>
+      </div>
+    </div>);
 
 };
 
