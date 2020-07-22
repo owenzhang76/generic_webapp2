@@ -11,6 +11,7 @@ import HomePage from './components/HomePage';
 const App = () => {
 
   const defaultState = {
+    cardIndex: "",
     username: "",
     password: "",
     email: "",
@@ -55,6 +56,25 @@ const App = () => {
         return state;
     }
   };
+
+  // const cardIndexReducer = (state = defaultState, action) => {
+  //   switch (action.type) {
+  //     case "INCREMEMENT_INDEX": 
+  //       return {
+  //           ...state,
+  //           cardIndex: state.cardIndex + 1
+  //       };
+
+  //     case "DECREMENT_INDEX": 
+  //     return {
+  //         ...state,
+  //         cardIndex: state.cardIndex - 1
+  //     };
+
+  //     default:
+  //       return state;
+  //   }
+  // }
 
   let store = createStore(userInfoReducer);
 

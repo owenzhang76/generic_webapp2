@@ -18,7 +18,6 @@ const LandingPage = ({ history, passRegisterInfoToMain }) => {
     history.push('/onboard');
   };
 
-
   // sequence: Submit registration info. Await confirmation. Push to next page.
 
   return (
@@ -56,6 +55,8 @@ const LandingPage = ({ history, passRegisterInfoToMain }) => {
         </div>
       </div>
     </div>);
-};
+} 
+
+  
 
 export default LandingPage;
