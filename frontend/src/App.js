@@ -15,7 +15,7 @@ const App = () => {
     username: "",
     password: "",
     email: "",
-    firstname: "",
+    firstname: "", 
     lastname: "",
     identityList: [] 
   };
@@ -56,6 +56,7 @@ const App = () => {
         return state;
     }
   };
+
 
   // const cardIndexReducer = (state = defaultState, action) => {
   //   switch (action.type) {
