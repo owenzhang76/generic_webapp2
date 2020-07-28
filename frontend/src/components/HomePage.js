@@ -1,5 +1,5 @@
 import i18n from 'i18next';import k from "./../i18n/keys";import React from 'react';
-import DoctorCard from "./PersonCard";
+import PersonCard from "./PersonCard";
 import { useState } from 'react';import { useDispatch, useSelector } from 'react-redux';
 
 const HomePage = () => {
@@ -47,13 +47,21 @@ const HomePage = () => {
     const personCardsList = [personCardOne, personCardTwo, personCardThree];
 
     const nextCard = () => {
-        setCardIndex(cardIndex+1);
+        if ((cardIndex+1) >= 3) {
+            setCardIndex(0);
+        } else {
+            setCardIndex(cardIndex+1);
+        }
+
        
     }
 
     const prevCard = () => {
-        setCardIndex(cardIndex-1);
-       
+        if ((cardIndex-1) <= -1) {
+            setCardIndex(2);
+        } else {
+            setCardIndex(cardIndex-1);
+        }
     }
 
     return (
@@ -61,9 +69,11 @@ const HomePage = () => {
             <div className="homepage-container">
                 <div className="sidebar"></div>
                 <div className="matching-main-container">
+                    <i class="fas fa-2x fa-arrow-left" onClick={prevCard}></i>
                     <div className="matching-container">
-                        <PersonCard personInfo={personCardsList[cardIndex]} nextCard={nextCard}/>
+                        <PersonCard index={cardIndex} personInfo={personCardsList[cardIndex]} nextCard={nextCard}/>
                     </div>
+                    <i class="fas fa-2x fa-arrow-right" onClick={nextCard}></i>
                 </div>
             </div>
         </div>

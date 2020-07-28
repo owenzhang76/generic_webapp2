@@ -595,7 +595,7 @@ button:focus {
 }
 
 .matching-container {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
@@ -628,6 +628,9 @@ button:focus {
   /* border: 1px solid black; */
   display: flex;
   flex-direction: row;  
+  justify-content: flex-start;
+  line-height: 1.3em;
+  align-items: center;
   font-size: 17px;
   font-weight: 400;
 }
@@ -646,7 +649,7 @@ button:focus {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 65%;
+  width: 80%;
   /* min-width: 50%; */
 
 }
@@ -694,3 +697,66 @@ button:focus {
   justify-content: center;
 }
 
+/*************** PersonCard Component ****************/
+
+.card-button-container {
+  display: flex;
+  padding: 20px;
+  margin-top: 80px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-button-twin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 80%;
+}
+
+.card-button{
+  border: none;
+  border-radius: 10px;
+  color: #2a2f32;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  height: 35px;
+  margin-top: 25px;
+  width: 45%;
+}
+
+.button-yellow {
+  background-color: #ffd152;
+}
+
+.button-green {
+  background-color: #2eb887;
+  color: white;
+}
+
+.button-yellow:hover {
+  background-color: #fcbc0b;
+  box-shadow: outset 0px 0px 0px 0px white;
+}
+
+.button-yellow:focus {
+  background-color: #fcbc0b;
+  box-shadow: outset 0px 0px 0px 0px white;
+  outline: none;
+}
+
+.button-green:hover {
+  background-color: #0ead76;
+  box-shadow: outset 0px 0px 0px 0px white;
+}
+
+.button-green:focus {
+  background-color: #0ead76;
+  box-shadow: outset 0px 0px 0px 0px white;
+  outline: none;
+}
+
+.text-container-main {
+  min-width: 100%;
+}
