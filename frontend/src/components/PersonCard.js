@@ -64,6 +64,7 @@ const PersonCard = props => {
                 payload: props.index, 
             });
         }
+        props.notifyAction();
     };
 
     return (

@@ -1,12 +1,36 @@
 import i18n from 'i18next';import k from "./../i18n/keys";import React from 'react';
 import PersonCard from "./PersonCard";
-import { useState } from 'react';import { useDispatch, useSelector } from 'react-redux';
+import List from "./List";
+import ListCard from "./ListCard";
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const HomePage = props => {
 
-    // const cardIndex = useSelector(state => state.cardIndex);
-
     const [cardIndex, setCardIndex] = useState(0);
+    const selectedIndexes = useSelector(state => state.selectedPersonsIndex);
+    let [children, updateChildrenList] = useState([]);
+    const [test, setTest] = useState(0);
+
+    useEffect(() => {
+        console.log("New addition/removation from list");
+        updateChildrenList();
+    }, [selectedIndexes, ]);
+
+    updateChildrenList = () => {
+        console.log('updateChildren list ran');
+        selectedIndexes.map((index) => {
+            console.log(index);
+            children.push(<ListCard index={index}/>);
+            console.log(children);
+        })
+    };
+
+    const notifyAction = () => {
+        console.log("yeet");
+        setTest(test+1);
+        updateChildrenList();
+    };
 
     const personCardOne = {
         // index: 0,
@@ -65,11 +89,13 @@ const HomePage = props => {
     return (
         <div className="home-main-container">
             <div className="homepage-container">
-                <div className="sidebar"></div>
+                <div className="sidebar">
+                    <List children={children}/>
+                </div>
                 <div className="matching-main-container">
                     <i class="fas fa-2x fa-arrow-left" onClick={prevCard}></i>
                     <div className="matching-container">
-                        <PersonCard index={cardIndex} personInfo={personCardsList[cardIndex]} nextCard={nextCard}/>
+                        <PersonCard index={cardIndex} personInfo={personCardsList[cardIndex]} nextCard={nextCard} notifyAction={notifyAction}/>
                     </div>
                     <i class="fas fa-2x fa-arrow-right" onClick={nextCard}></i>
                 </div>
