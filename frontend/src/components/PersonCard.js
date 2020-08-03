@@ -9,37 +9,23 @@ const PersonCard = props => {
 
     const dispatch = useDispatch();
 
+    let divId = `person-container-${props.index}`;
     let [isClicked, setIsClicked] = useState(false);
     const selectedIndexes = useSelector(state => state.selectedPersonsIndex);
+
+    useEffect(() => {
+        if(selectedIndexes.includes(props.index)) {
+            document.getElementById(divId).classList.add("selected-card-outline");
+            setIsClicked(true);
+        } else {
+            document.getElementById(divId).classList.remove("selected-card-outline");
+            setIsClicked(false);
+        }
+    }, [props.index]);
 
     const handleOnClick = (e) => {
         props.nextCard();
     };
-
-    let divId = `person-container-${props.index}`;
-
-    useEffect(() => {
-        console.log("Inside useEffect");
-        console.log(selectedIndexes);
-        if(selectedIndexes.includes(props.index)) {
-            console.log("this card has already been selected");
-            document.getElementById(divId).classList.add("selected-card-outline");
-            setIsClicked(true);
-        } else {
-            console.log("this card has not been selected before");
-            document.getElementById(divId).classList.remove("selected-card-outline");
-            setIsClicked(false);
-        }
-        // if (isClicked) {
-        //     if(selectedIndexes.includes(props.index)) {
-        //         console.log("this card has already been selected");
-        //     } else {
-        //         console.log("this card has not been selected before");
-        //         document.getElementById(divId).classList.remove("selected-card-outline");
-        //     }
-        // };
-       
-    }, [props.index]);
 
     const showPicture = () => {
         switch (props.index) {
@@ -117,7 +103,6 @@ const PersonCard = props => {
             </div>
         </div> 
     )
-
 }
 
 export default PersonCard;
