@@ -17,7 +17,8 @@ const App = () => {
     email: "",
     firstname: "", 
     lastname: "",
-    identityList: [] 
+    identityList: [] ,
+    selectedPersonsIndex: [],
   };
 
   const userInfoReducer = (state = defaultState, action) => {
@@ -52,40 +53,46 @@ const App = () => {
           identityList: action.newList 
         };
 
+      case "ADD_TO_SELECTED_INDEX":
+        return {
+          ...state,
+          selectedPersonsIndex: [...state.selectedPersonsIndex, action.payload]
+        };
+
+      case "REMOVE_FROM_SELECTED_INDEX":
+        let indexInList = state.selectedPersonsIndex.indexOf(action.payload);
+        return {
+          ...state,
+          selectedPersonsIndex: [
+            ...state.selectedPersonsIndex.slice(0, indexInList),
+            ...state.selectedPersonsIndex.slice(indexInList + 1),
+          ],
+        };
+
       default:
         return state;
     }
   };
 
-
-  // const cardIndexReducer = (state = defaultState, action) => {
-  //   switch (action.type) {
-  //     case "INCREMEMENT_INDEX": 
-  //       return {
-  //           ...state,
-  //           cardIndex: state.cardIndex + 1
-  //       };
-
-  //     case "DECREMENT_INDEX": 
-  //     return {
-  //         ...state,
-  //         cardIndex: state.cardIndex - 1
-  //     };
-
-  //     default:
-  //       return state;
-  //   }
-  // }
-
   let store = createStore(userInfoReducer);
 
+  store.subscribe(() => {
+    console.log('Store updated! ', store.getState());
+  });
+
+  // const showState = () => {
+  //   console.log("Inside App.js");
+  //   console.log(store.getState());
+  // }
+
+  console.log(defaultState);
   return (
     <Provider store={store}>
       <div>
         <Router>
           <Route exact path='/' render={props => <LandingPage {...props} />}></Route>
           <Route exact path='/onboard' render={props => <OnboardPage {...props} />}></Route>
-          <Route exact path='/home' render={props => <HomePage {...props} />}></Route>
+          <Route exact path='/home' render={props => <HomePage {...props}/>}></Route>
         </Router>
       </div>
     </Provider>

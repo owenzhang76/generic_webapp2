@@ -2,7 +2,7 @@ import i18n from 'i18next';import k from "./../i18n/keys";import React from 'rea
 import PersonCard from "./PersonCard";
 import { useState } from 'react';import { useDispatch, useSelector } from 'react-redux';
 
-const HomePage = () => {
+const HomePage = props => {
 
     // const cardIndex = useSelector(state => state.cardIndex);
 
@@ -52,8 +52,6 @@ const HomePage = () => {
         } else {
             setCardIndex(cardIndex+1);
         }
-
-       
     }
 
     const prevCard = () => {

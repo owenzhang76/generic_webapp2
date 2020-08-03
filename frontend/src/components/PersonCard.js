@@ -2,26 +2,46 @@ import i18n from 'i18next';import k from "../i18n/keys";import React from 'react
 import PersonZero from "../stock_person_0.jpg";
 import PersonOne from "../stock_person_1.jpg";
 import PersonTwo from "../stock_person_2.jpg";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const PersonCard = props => {
-    
-    // const cardIndex = useSelector(state => state.cardIndex);
 
     const dispatch = useDispatch();
 
-    let [index, setIndex] = useState();
-
+    let [isClicked, setIsClicked] = useState(false);
+    const selectedIndexes = useSelector(state => state.selectedPersonsIndex);
 
     const handleOnClick = (e) => {
         props.nextCard();
-    }
-    console.log(props);
-    console.log(props.personInfo);
+    };
+
+    let divId = `person-container-${props.index}`;
+
+    useEffect(() => {
+        console.log("Inside useEffect");
+        console.log(selectedIndexes);
+        if(selectedIndexes.includes(props.index)) {
+            console.log("this card has already been selected");
+            document.getElementById(divId).classList.add("selected-card-outline");
+            setIsClicked(true);
+        } else {
+            console.log("this card has not been selected before");
+            document.getElementById(divId).classList.remove("selected-card-outline");
+            setIsClicked(false);
+        }
+        // if (isClicked) {
+        //     if(selectedIndexes.includes(props.index)) {
+        //         console.log("this card has already been selected");
+        //     } else {
+        //         console.log("this card has not been selected before");
+        //         document.getElementById(divId).classList.remove("selected-card-outline");
+        //     }
+        // };
+       
+    }, [props.index]);
 
     const showPicture = () => {
-        console.log(props.index);
         switch (props.index) {
             case 0:
                 return (
@@ -36,14 +56,34 @@ const PersonCard = props => {
                     <img alt="person one" className="profile-image" src={PersonTwo}></img>
                 )
         }
-    }
+    };
 
+    const addToList = (e) => {
+        if (!isClicked) {
+            console.log("if");
+            setIsClicked(true);
+            document.getElementById(divId).classList.add("selected-card-outline");
+            dispatch({
+                type: "ADD_TO_SELECTED_INDEX",
+                payload: props.index, 
+            });
+        } else {
+            console.log("else");
+            setIsClicked(false);
+            let index = props.index;
+            console.log(index);
+            document.getElementById(divId).classList.remove("selected-card-outline");
+            dispatch({
+                type: "REMOVE_FROM_SELECTED_INDEX",
+                payload: props.index, 
+            });
+        }
+    };
 
     return (
-        <div className="person-container">
+        <div id={divId} className="person-container">
             <div className="image-container">
                 {showPicture()}
-                {/* <img alt="person one" className="profile-image" src={PersonZero}></img> */}
             </div>
             <div id="description-one" className="person-description">
                 <div id="page-two" className="text-container-main">
@@ -69,7 +109,7 @@ const PersonCard = props => {
                     </div>
                     <div class="card-button-container"> 
                         <div class="card-button-twin">
-                            <button class="card-button button-yellow">Add to List</button>
+                            <button class="card-button button-yellow" onClick={addToList}>Add to List</button>
                             <button class="card-button button-green">View Profile</button>
                         </div>
                     </div>

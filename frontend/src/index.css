@@ -760,3 +760,8 @@ button:focus {
 .text-container-main {
   min-width: 100%;
 }
+
+.selected-card-outline {
+  border: 1px solid gold;
+  border-radius: 21px;
+}
