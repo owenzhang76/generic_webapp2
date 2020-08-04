@@ -15,21 +15,22 @@ const HomePage = props => {
     useEffect(() => {
         console.log("New addition/removation from list");
         updateChildrenList();
-    }, [selectedIndexes, ]);
+    }, [selectedIndexes]);
 
     updateChildrenList = () => {
+        children.length = 0;
         console.log('updateChildren list ran');
         selectedIndexes.map((index) => {
             console.log(index);
             children.push(<ListCard index={index}/>);
             console.log(children);
-        })
+        });
+        // I learned something here!
+        setTest(test+1);
     };
 
     const notifyAction = () => {
         console.log("yeet");
-        setTest(test+1);
-        updateChildrenList();
     };
 
     const personCardOne = {
