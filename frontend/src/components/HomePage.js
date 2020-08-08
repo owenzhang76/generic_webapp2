@@ -2,6 +2,8 @@ import i18n from 'i18next';import k from "./../i18n/keys";import React from 'rea
 import PersonCard from "./PersonCard";
 import List from "./List";
 import ListCard from "./ListCard";
+import Appointments from "./Appointments";
+import AppointmentCard from "./AppointmentCard";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,11 +12,13 @@ const HomePage = props => {
     const [cardIndex, setCardIndex] = useState(0);
     const selectedIndexes = useSelector(state => state.selectedPersonsIndex);
     let [children, updateChildrenList] = useState([]);
+    let [appointments, updateAppointmentsList] = useState([]);
     const [test, setTest] = useState(0);
 
     useEffect(() => {
         console.log("New addition/removation from list");
         updateChildrenList();
+        updateAppointmentsList();
     }, [selectedIndexes]);
 
     updateChildrenList = () => {
@@ -24,6 +28,18 @@ const HomePage = props => {
             console.log(index);
             children.push(<ListCard index={index}/>);
             console.log(children);
+        });
+        // I learned something here!
+        setTest(test+1);
+    };
+
+    updateAppointmentsList = () => {
+        appointments.length = 0;
+        console.log('updateAppoitments list ran');
+        selectedIndexes.map((index) => {
+            console.log(index);
+            appointments.push(<AppointmentCard index={index}/>);
+            console.log(appointments);
         });
         // I learned something here!
         setTest(test+1);
@@ -92,6 +108,7 @@ const HomePage = props => {
             <div className="homepage-container">
                 <div className="sidebar">
                     <List children={children}/>
+                    <Appointments children={appointments}/>
                 </div>
                 <div className="matching-main-container">
                     <i class="fas fa-2x fa-arrow-left" onClick={prevCard}></i>
